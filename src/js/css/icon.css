@@ -1,0 +1,285 @@
+.i_task2_area
+{
+    display: inline-block;
+    height: 24px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 24px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_task2_vod_task
+{
+    background: rgba(0, 0, 0, 0) url("/img/VOD_task.png") no-repeat center center;
+}
+.i_task2_live_task
+{
+    background: rgba(0, 0, 0, 0) url("/img/Live_task.png") no-repeat center center;
+}
+.i_task2_file_task
+{
+    background: rgba(0, 0, 0, 0) url("/img/F2F_task.png") no-repeat center center;
+}
+
+
+.i_task_area
+{
+    display: inline-block;
+    height: 32px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 32px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_task_vod_complete
+{
+    background: rgba(0, 0, 0, 0) url("/img/VOD_complete.png") no-repeat center center;
+}
+.i_task_vod_running
+{
+    background: rgba(0, 0, 0, 0) url("/img/VOD_running.png") no-repeat center center;
+}
+.i_task_vod_failed
+{
+    background: rgba(0, 0, 0, 0) url("/img/VOD_failed.png") no-repeat center center;
+}
+.i_task_live_complete
+{
+    background: rgba(0, 0, 0, 0) url("/img/Live_complete.png") no-repeat center center;
+}
+.i_task_live_running
+{
+    background: rgba(0, 0, 0, 0) url("/img/Live_runninig.png") no-repeat center center;
+}
+.i_task_live_failed
+{
+    background: rgba(0, 0, 0, 0) url("/img/Live_failed.png") no-repeat center center;
+}
+.i_task_f2f_complete
+{
+    background: rgba(0, 0, 0, 0) url("/img/F2F_complete.png") no-repeat center center;
+}
+.i_task_f2f_running
+{
+    background: rgba(0, 0, 0, 0) url("/img/F2F_running.png") no-repeat center center;
+}
+.i_task_f2f_failed
+{
+    background: rgba(0, 0, 0, 0) url("/img/F2F_failed.png") no-repeat center center;
+}
+
+.i_status_area
+{
+    display: inline-block;
+    height: 32px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 14px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+
+.i_status_ok
+{
+    background: rgba(0, 0, 0, 0) url("/img/ok_14.png") no-repeat center center;
+}
+.i_status_error
+{
+    background: rgba(0, 0, 0, 0) url("/img/error_14.png") no-repeat center center;
+}
+.i_status_loading
+{
+    background: rgba(0, 0, 0, 0) url("/img/loading_12.gif") no-repeat center center;
+}
+
+.i_action_area
+{
+    display: inline-block;
+    height: 32px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 32px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_action_area:focus
+{
+   outline:0;
+}
+.i_action_delete
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/Del_n.png") no-repeat center center;
+}
+.i_action_delete:hover
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/Del_h.png") no-repeat center center;
+}
+.i_action_delete:disabled
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/Del_d.png") no-repeat center center;
+}
+.i_action_delete:focus
+{
+   border: none;
+}
+.i_action_preview
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/preview_n.png") no-repeat center center;
+}
+.i_action_preview:hover
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/preview_h.png") no-repeat center center;
+}
+.i_action_preview:disabled
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/preview_d.png") no-repeat center center;
+}
+
+.i_button_area
+{
+    display: inline-block;
+    height: 15px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 15px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_button_area:focus
+{
+   outline:0;
+}
+.i_button_del
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/Del_n.png") no-repeat center center;
+}
+.i_button_del:hover
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/Del_h.png") no-repeat center center;
+}
+.i_button_del:disabled
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/Del_d.png") no-repeat center center;
+}
+
+.i_area_24x24
+{
+    display: inline-block;
+    height: 24px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 24px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_area_24x24:focus
+{
+   outline:0;
+}
+.i_area_folderopen
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/folderopen_n.png") no-repeat center center;
+}
+.i_area_folderopen:hover
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/folderopen_h.png") no-repeat center center;
+}
+.i_area_folderopen:disabled
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/folderopen_d.png") no-repeat center center;
+}
+.i_area_folderopen:active
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/folderopen_a.png") no-repeat center center;
+}
+
+.i_area_17x16
+{
+    display: inline-block;
+    height: 16px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 17px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_area_17x16:focus
+{
+   outline:0;
+}
+.i_area_delete
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/delete_n.png") no-repeat center center;
+}
+.i_area_delete:hover
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/delete_h.png") no-repeat center center;
+}
+.i_area_delete:disabled
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/delete_d.png") no-repeat center center;
+}
+
+.i_area_16x16
+{
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+    padding: 0 0 0 0;
+    border:none;
+}
+.i_area_16x16:focus
+{
+   outline:0;
+}
+.i_area_btn_copy
+{
+    background: rgba(0, 0, 0, 0) url("/img/btn_copy.png") no-repeat scroll center center;
+}
+.i_area_btn_copy:hover
+{
+    background: rgba(0, 0, 0, 0) url("/img/btn_copy_h.png") no-repeat scroll center center;
+}
+.i_area_btn_copy:disabled
+{
+    background: rgba(0, 0, 0, 0) url("/img/btn_copy_d.png") no-repeat scroll center center;
+}

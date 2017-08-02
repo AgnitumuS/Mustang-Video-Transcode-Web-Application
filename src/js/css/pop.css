@@ -1,0 +1,189 @@
+
+
+.f_medium{
+    font-family: 'Roboto-M';
+}
+
+.i_closeBtn{
+    background: rgba(0, 0, 0, 0) url("/img/function_info_close.png") no-repeat scroll 0 center;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
+    position: absolute;
+    right: 11px;
+    top: 11px;
+    padding: 10 10 0 0;
+}
+
+.popupContainer{
+	height: 100%;
+	width: 100%;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+    background-color: #f6f8f9;
+    position: relative;
+}
+
+.popupVideoContainer{
+    height: 375px;
+    width: 650px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color: #f6f8f9;
+}
+
+.popHeader{
+	font-family: 'Roboto-M';
+	font-size: 20px;
+	color: #000000;
+    height: 58px;
+    padding-left: 35px;
+    display:table-cell;
+    vertical-align: middle;
+}
+
+.titleHr{
+    border-bottom: 1px solid #b0b0b0;
+    margin: 0 0 0 0;
+}
+
+.bodyStyle
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bodyHeader
+{
+    font-family: 'Roboto-M';
+    font-size: 14px;
+    color: #131313;
+    padding-bottom: 15px;
+    padding-left: 35px;
+
+}
+
+.popFooter{
+	text-align: right;
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 35px 24px 35px;
+}
+
+.bodyContent
+{
+    padding: 0 35px 50px 35px;
+    width: 100%;
+}
+
+.okBtnStyle {
+    background-color: #fff;
+    border: 1px solid #707070;
+    color: #2f2f2f;
+    height: 30px;
+    margin-left: 8px;
+    min-width: 80px;
+    padding: 0 22px;
+    cursor: pointer;
+}
+
+.cancelBtnStyle {
+    background-color: #fff;
+    border: 1px solid #707070;
+    color: #2f2f2f;
+    height: 30px;
+    margin-left: 8px;
+    min-width: 80px;
+    padding: 0 22px;
+    cursor: pointer;
+}
+
+table.tableBorder {
+	border: 1px solid #a1a9bb;
+    border-collapse: collapse;
+    vertical-align: middle;
+    padding: 15 35 20 35;
+}
+
+table.tableBorder td,
+table.tableBorder th {
+	/*border-right: 1px solid #c8c8c8;
+    border-left: 1px solid #c8c8c8;*/
+	outline:none;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table.tableBorder th,
+table.tableBorder thead{
+    font-family: 'Roboto-R';
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #7d8992;
+}
+
+.cell1
+{
+	background-color: #ffffff;
+}
+
+.cell2
+{
+	background-color: #f4f4f4;
+}
+
+table.tableBorder tr
+{
+	border: 1px solid #a1a9bb;
+	text-align: left;
+
+    display: table-row;
+    font-family: 'Roboto-M';
+    font-size: 12px;
+    height: 32px;
+}
+
+.alignRight
+{
+    text-align: right;
+    margin-right: 10px;
+}
+
+
+.i_open{
+    display: inline-block;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 16px;
+    padding: 0 0 0 0;
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: rgba(0, 0, 0, 0) url("/img/open_n.png") no-repeat scroll center center;
+}
+
+.i_preview
+{
+    display: inline-block;
+    height: 14px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 29px;
+    padding: 0 0 0 0;
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: rgba(0, 0, 0, 0) url("/img/preview_n.png") no-repeat scroll center center;
+    float: right;
+}
+.spanUrl
+{
+    background-color: #d8e1e2;
+    /*width: 230px;*/
+}

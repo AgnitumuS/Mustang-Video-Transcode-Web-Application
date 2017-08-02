@@ -1,0 +1,208 @@
+/*
+		Description: overview.css for Overview page
+		Created By: Nayana
+		Date: 27-06-2017;
+		@import 'https://fonts.googleapis.com/css?family=Roboto';
+*/
+
+
+.overviewPage{
+	background-color: #f6f8f9;
+	width: 100%;
+	height: 100%;
+}
+
+.mainTitleBar{cd
+	height: 40px;
+}
+
+.f_medium{
+    font-family: 'Roboto-M';
+}
+
+.mainTitleStyle{
+	font-family: 'Roboto-M';
+	font-size: 20px;
+	color: #000000;
+}
+
+.mainTitleHr{
+	border-bottom: 1px solid #e2e2e2;
+    margin: 10px 0;
+}
+
+.infoPanel{
+	margin-top: 20px;
+	border: 1px solid #a1a1a1;
+	background-color: #ffffff;
+}
+
+.infoPanel .titlePanel{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.infoPanel .mainTitle {
+    height: 25px;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-family: 'Roboto-M';
+}
+
+
+.i_icCard
+{
+	background: rgba(0, 0, 0, 0) url("/img/ic_card.png") no-repeat scroll center center;
+	width: 36px;
+	height: 36px;
+	border: 0;
+}
+
+.i_info
+{
+	display: inline-block;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 20px;
+    padding: 0 0 0 0;
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	background: rgba(0, 0, 0, 0) url("/img/function_info.png") no-repeat scroll center center;
+}
+
+.cardInfoStyle
+{
+	font-size: 14px;
+    color: #131313;
+    font-family: 'Roboto-R';
+}
+
+.urlStyle
+{
+	font-size: 13px;
+    color: #0071ba;
+    font-family: 'Roboto-R';
+    text-decoration: underline;
+    text-decoration-color: #0071ba;
+}
+.urlStyle:hover, .urlStyle:focus {
+    color: #015def;
+    text-decoration: underline;
+}
+
+.progressBarCPU
+{
+	font-size: 50px;
+    color: #3c7fdd;
+    font-family: 'Roboto-R';
+}
+
+.progressBarGPU
+{
+	font-size: 50px;
+    color: #00aab7;
+    font-family: 'Roboto-R';
+}
+
+.leftPanel{
+	width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    display: inline-flex;
+}
+
+/*
+.leftPanel .panel1{
+	width: 30%;
+}
+
+.leftPanel .panel2{
+	width: 70%;
+}
+
+.leftPanel .panel2 .panel21
+{
+
+}*/
+
+.rightPanel{
+	width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    display: inline-flex;
+    border-left: 1px solid #eeeeee;
+	/*width: 50%;
+    display: inline-block;
+    float: right;
+    display:inline-flex;*/
+}
+
+.table123
+{
+	border-color: white;
+
+	border:none;
+	width: 100%;
+
+}
+
+table.bottomBorder {
+    border-collapse: collapse;
+    vertical-align: middle;
+}
+table.bottomBorder td,
+table.bottomBorder th {
+	border:none;
+	outline:none;
+}
+
+table.bottomBorder tr
+{
+    height: 32px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.rowHr{
+	border-bottom: 1px solid #eeeeee;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cell1{ width: 40%; }
+
+.cell2{ width: 60%; }
+
+.d1{ width: 28%; margin-left: 20px;}
+
+.d2{
+	width: 33%;
+	vertical-align: middle;
+}
+
+.d3{
+	width: 33%;
+	vertical-align: middle;
+	align-items: left;
+}
+
+.cpuProgress
+{
+	margin-top: 20px;
+}
+
+.d4{ width: 6%;}
+
+.imgPosition
+{
+	padding-top: 110px;
+	padding-bottom: 10px;
+    vertical-align: bottom;
+}

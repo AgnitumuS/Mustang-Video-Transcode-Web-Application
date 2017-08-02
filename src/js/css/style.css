@@ -1,0 +1,350 @@
+
+.navColor {
+  background: linear-gradient(to right, #1d6fde, #009ec6);
+  height: 10px;
+}
+
+.navBar {
+    background-color: white;
+    width: 90%;
+    vertical-align: text-bottom;
+    text-align: left;
+    margin-left: 100px;
+}
+
+.navBar .borderBottom {
+    border-bottom: 2px solid black;
+    width: 24px;
+}
+
+
+
+.navBar .navTitle > img {
+    margin-right: 12px;
+    vertical-align: text-top;
+    text-align: center;
+
+}
+.navBar .navTitle {
+    display: inline-block;
+    font-size: 24px;
+    color: #1c6ede;
+
+}
+.navBar .navWizardBox {
+    display: inline-block;
+    float: right;
+    margin-right: 25px;
+}
+.navBar .navBox {
+    display: inline-block;
+    float: right;
+}
+
+.navBar .navBox ul li {
+    display: inline-block;
+    position: relative;
+}
+
+.navBar .boxLine {
+    height: 30px;
+    width: 1px;
+    margin: 0 25px;
+    vertical-align: bottom;
+    background-color: #2f2f2f;
+    display: inline-block;
+}
+
+.navBar .f_userIcon {
+    display: inline-block;
+}
+.navBar .f_userIcon img{
+    width: 27px;
+    height: 27px;
+    vertical-align: middle;
+}
+
+.navBar .f_userName {
+    margin:0 30px;
+    display: inline-block;
+}
+
+/*
+.navDropdownMenu{
+    position: absolute;
+    top: 44px;
+    right: 0px;
+    width: 210px;
+    background-color: rgba(255,255,255,0.95);
+    z-index: 5;
+}
+.navBar .f_userName .navDropdownMenu {
+    right: 28px;
+}
+.navBar .navDropdownMenu ul {
+    border: 1px solid #b0b0b0;
+    padding: 14px 0;
+}
+.navBar .navDropdownMenu ul li.dropdownLine {
+    border-bottom: 1px solid #cecece;
+    margin: 8px 20% 8px 0;
+}
+
+.navBar .navDropdownMenu ul li {
+    cursor: pointer;
+    display: list-item;
+    line-height: 28px;
+    padding: 0 22px;
+    font-size: 13px;
+    color: #2f2f2f;
+    text-align: left;
+    position: relative;
+}
+.navBar .navDropdownMenu ul li a{
+    text-decoration: none;
+    color: #2f2f2f;
+}
+.navBar .navDropdownMenu ul li.lasttimeBox {
+    line-height: 17px;
+    height: 46px;
+    padding-top: 6px;
+}
+
+.navBar .navDropdownMenu ul li:hover {
+    background-color: #e1f9fb ;
+}
+
+.navBar .navDropdownMenu ul li ol {
+    display: none;
+}
+.navBar .navDropdownMenu ul li:hover ol {
+    position: absolute;
+    left: -160px;
+    background-color: white;
+    padding: 14px 0;
+    width: 160px;
+    top: 5px;
+    border: 1px solid #b0b0b0;
+    display: block;
+}
+
+.navBar .navDropdownMenu img {
+    margin-right: 14px;
+    vertical-align: text-top;
+}
+
+.navBar .navDropdownMenu > a {
+    background-color: #00757a;
+    height: 2px;
+    position: absolute;
+    right: 0;
+    top: -2px;
+    width: 24px;
+}
+
+.navBar .f_dropdownArrowBtn {
+    width: 20px;
+    height: 40px;
+    border: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.navBar .f_moreBtn {
+    width: 20px;
+    height: 40px;
+    border: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+*/
+
+
+
+.f_bold {
+    font-family: 'Roboto-B';
+}
+.f_light {
+    font-family: 'Roboto-L';
+}
+
+/* frameset left side menu style */
+/*.leftMenu {
+    float: left;
+    width: 150px;
+    background: linear-gradient(to bottom, red, green);
+
+    animation: sideToBigMenu 0.5s ease;
+}
+
+
+
+.leftMenu.mini {
+    animation: sideToMiniMenu 0.5s ease;
+}
+
+.leftMenu ul Link {
+    color: white;
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+}
+
+
+.i_open {
+    background: url(/img/sys/open_n.png) no-repeat scroll 0 center;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}*/
+
+/* Included components/layout/sideBarMenu.css */
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 15px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #004B97   ;
+}
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  /*background: #66B3FF ;*/
+  background: linear-gradient(to bottom, #1d6fde, #009ec6);
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  float: left;
+  width: 150px;
+  animation: sideToBigMenu 0.5s ease;
+}
+
+.bm-menu-wrap {
+  left: 0;
+}
+
+.bm-menu .i_side_icons {
+    display: inline-block;
+    height: 35px;
+    margin-right: 13px;
+    vertical-align: middle;
+    width: 35px;
+    padding: 0 0 0 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.bm-menu .i_side_home {
+    background: rgba(255, 255, 255, 0) url("/img/side_overview.png") no-repeat scroll center center;
+}
+.bm-menu .i_side_overview {
+    background: rgba(255, 255, 255, 0) url("/img/side_overview.png") no-repeat scroll center center;
+}
+.bm-menu .i_side_card {
+    background: rgba(255, 255, 255, 0) url("/img/side_cards info.png") no-repeat scroll center center;
+}
+.bm-menu .i_side_config {
+    background: rgba(255, 255, 255, 0) url("/img/side_cards info.png") no-repeat scroll center center;
+}
+.bm-menu .i_side_demo {
+    background: rgba(255, 255, 255, 0) url("/img/side_cards info.png") no-repeat scroll center center;
+}
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #ECF5FF;
+  padding: 0.8em;
+}
+
+a:hover{
+    color: #d0d0d0;
+    text-decoration: none;
+}
+a:focus {
+    color: #FFD306;
+    text-decoration: none;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.cpuTextRegular
+{
+    font-family: 'Roboto-B';
+    font-size: 25px;
+    text-anchor: middle;
+}
+
+.cpuTextAlert
+{
+    font-family: 'Roboto-B';
+    font-size: 25px;
+    text-anchor: middle;
+}
+
+.gpuText_Regular
+{
+    font-family: 'Roboto-B';
+    font-size: 25px;
+    text-anchor: middle;
+}
+
+.gradiant{
+    background: linear-gradient(to right, #2ed9e6 , #00aab7);
+}
+
+.runningInfo{
+    font-family: 'Roboto-R';
+    font-size: 14px;
+    color: #131313;
+}
+
+.completeInfo{
+    font-family: 'Roboto-R';
+    font-size: 14px;
+    color: #131313;
+}
+
+.failedInfo{
+    font-family: 'Roboto-R';
+    font-size: 14px;
+    color: #cf0b0f;
+}
+
+.rowHr{
+	border-bottom: 1px solid #eeeeee;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.checkbox
+{
+    cursor: pointer;
+}
+
+.checkbox:disabled
+{
+    cursor: no-drop;
+}

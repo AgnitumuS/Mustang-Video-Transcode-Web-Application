@@ -1,0 +1,52 @@
+#css_table {
+     width: 100%;
+     font-size: 14px;
+  }
+#css_th {
+	 background-color:#7d8992;
+     text-align: center;
+     height: 32px;
+     width: 10px;
+     color:#ffffff;
+  }
+#css_th2 {
+	 background-color:#7d8992;
+     text-align: center;
+     height: 32px;
+     width: 100px;
+     color:#ffffff;
+  }
+#css_td1 {
+     text-align: center;
+     height: 32px;
+  }
+#css_td2 {
+     text-align: left;
+     height: 32px;
+  }
+#css_td3 {
+	 text-align: right;
+	 padding-right: 6px;
+  }
+#css_td4 {
+	 text-align: left;
+	 padding-left: 6px;
+  }
+#css_td5 {
+	 text-align: left;
+	 padding-left: 6px;
+  }
+#css_td6_1 {
+	 float: left;
+  }
+#css_td6_2 {
+	 float: left;
+  }
+#css_td6_3 {
+	 clear:left;
+  }
+
+
+#bottom {
+	height: 30px;
+  }
