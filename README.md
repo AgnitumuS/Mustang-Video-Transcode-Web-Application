@@ -16,28 +16,28 @@ The IEI Transcoding application is developed based on React JS and Node JS Frame
 
 ## Prerequisites
 
-1. Install Mustang-200 driver.
-2. Install Mustang-200 Host SDK.
+Install Mustang-200 Host Server SDK
    
 ## Installation guide:
 
-##### 1. download source code
-##### 2. npm install
+##### 1. download source code from https://github.com/IEI-dev/Mustang-Video-Transcode-Web-Application on Github
+##### 2. Download nodejs tool from https://nodejs.org/en/ and install nodejs
+##### 3. Change to the Mustang-Video-Transcode-Web-Application directory and run the following command:npm install
+         
+             
+##### 4. Run with Developer Mode (Developer PC)
 
-##### 3. Run with debug mode
-1.	set file: "/src/js/config/appConfig.js" parameter: "const DebugUse=true;"
- 
-   appConfigHead.HOST_API.host = host Ip 
-   appConfigHead.HOST_API.port = host port
+	a. set file: "/src/js/config/appConfig.js" parameter: "const DebugUse=true;"
+	    appConfigHead.HOST_API.host = host IP , appConfigHead.HOST_API.port = host port
+	b. npm run dev
+	c. open local web page: url is localhost:8080
 
-2.	npm run dev
-3.	open local web page: url is localhost:8080
+##### 5. Run in host sever
+   a. set file: "/src/js/config/appConfig.js" parameter: "const DebugUse=false;"
+	b. npm run build_dev
+	c. replace the application "/mustang-web-application-master/public" folder to Host SDK "/share/Public/mvt/public" folder.
+	d. open host server web page: url is hostIP:hostPort
 
-##### 3. Run in host sever
-1. set file: "/src/js/config/appConfig.js" parameter: "const DebugUse=false;"
-2. npm run build_dev
-3. place the application "/mustang-web-application-master/public" folder to  Host SDK "/share/Public/mvt/public" folder. 
-4. open web page: url is hostIP:hostPort
 
 ## Getting Started
 
@@ -53,7 +53,7 @@ The Mustang transcoding application has simple four pages. These pages provide y
 
 ![](https://github.com/IEI-dev/Mustang-Video-Transcode-Web-Application/blob/master/src/readme_img/Overview.jpg)
 
-### Network :
+### Port settings :
    
 This page displays the network information regarding how the cards are connected to host system. It gives the following information
 1. The CPU, MAC and IP Addresses
@@ -81,9 +81,20 @@ This is a sub item on the card page. When you want to add new tasks this wizard 
    
 ![](https://github.com/IEI-dev/Mustang-Video-Transcode-Web-Application/blob/master/src/readme_img/settings.jpg)
 
+### Logs
+
+Log page contains history of information about the transcoding operations.History logs help you track and control the transcoding activities.It tracks high-level activities such as the start and completion of jobs and status changes.User can apply following filters to query the logs.
+     
+     1.Date
+     2.Job Type
+     3.Stuatus
+     
+![](https://github.com/IEI-dev/Mustang-Video-Transcode-Web-Application/blob/master/src/readme_img/log.jpg)     
+     
+
 ## Examples
  
-### VOD Transcoding 4K HEVC   to 4K H.264 Codec RTMP Streaming 
+### VOD Transcoding 4K HEVC  to 4K H.264 Codec RTMP Streaming 
  
 #### Click Add task on Card Page
      
