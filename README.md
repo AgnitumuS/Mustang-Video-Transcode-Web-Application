@@ -51,7 +51,7 @@ The Mustang transcoding application has simple four pages. These pages provide y
 3. System information (including Processor, RAM & IP Addresses).
 4. Navigating to Individual CPUs. (Login to QTS OS)
 
-![](https://github.com/IEI-dev/Mustang-Video-Transcode-Web-Application/blob/master/src/readme_img/Overview.jpg)
+https://raw.githubusercontent.com/IEI-dev/Mustang-Video-Transcode-Web-Application/master/src/readme_img/Overview.jpg
 
 ### Port settings :
    
