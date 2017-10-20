@@ -1,5 +1,8 @@
 import React from "react";
-import {taskConfig} from '../../config'
+import {taskConfig} from '../../config';
+
+import '../../css/settings.css';
+
 export default class Settings_step4_list extends React.Component {
 
   constructor(props) {
@@ -14,17 +17,18 @@ export default class Settings_step4_list extends React.Component {
   }
 
   render() {
+	const marginBrown="12px";  
     var qpBitrateList=[];
     if(!this.props.FrameRate_QP_value){
-      qpBitrateList.push(<td style={{height:"40px"}} key={"qp"}>{this.state.qp}</td>);
+      qpBitrateList.push(<td style={{height:"32px",textAlign:'left',paddingLeft: marginBrown}} key={"qp"}>{this.state.qp}</td>);
     }
     else{
-      qpBitrateList.push(<td style={{height:"40px"}} key={"bitrate"}>{this.state.bitrate}</td>);
+      qpBitrateList.push(<td style={{height:"32px",textAlign:'left',paddingLeft: marginBrown}} key={"bitrate"}>{this.state.bitrate}</td>);
     }
     return (
       <tr >
-        <td style={{height:"40px"}} >{this.state.resolution}</td>
-        <td style={{height:"40px"}} >{this.state.framerate}</td>
+        <td style={{height:"32px",textAlign:'left',paddingLeft: marginBrown}} >{this.state.resolution}</td>
+        <td style={{height:"32px",textAlign:'left',paddingLeft: marginBrown}} >{this.state.framerate}</td>
         {qpBitrateList}
       </tr>
     );

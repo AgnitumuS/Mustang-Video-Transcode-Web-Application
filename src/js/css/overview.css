@@ -7,13 +7,15 @@
 
 
 .overviewPage{
+	padding: 0 5px 0 0px;
 	background-color: #f6f8f9;
 	width: 100%;
 	height: 100%;
+	min-width: 1042px;
 }
 
-.mainTitleBar{cd
-	height: 40px;
+.mainTitleBar{
+	height: 100%;
 }
 
 .f_medium{
@@ -23,31 +25,35 @@
 .mainTitleStyle{
 	font-family: 'Roboto-M';
 	font-size: 20px;
-	color: #000000;
+	color: #000000;	background-color: #f6f8f9;
+	/*margin-top: 20px;
+	margin-bottom: 20px;*/
 }
 
 .mainTitleHr{
-	border-bottom: 1px solid #e2e2e2;
-    margin: 10px 0;
+	border-bottom: 1px solid #b0b0b0;
+    /*margin: 10px 0;*/
 }
 
 .infoPanel{
-	margin-top: 20px;
+	margin-bottom: 20px;
 	border: 1px solid #a1a1a1;
 	background-color: #ffffff;
 }
 
-.infoPanel .titlePanel{
-	margin-top: 10px;
-	margin-left: 10px;
+.titlePanel{
+	height: 36px;
+	vertical-align: middle;
+	background-color: #f7fafc;
+	margin: auto;
+	display: inline-block;
 }
 
-.infoPanel .mainTitle {
-    height: 25px;
-    font-size: 16px;
+.mainTitle {
+	font-family: 'Roboto-R';
+    font-size: 18px;
     color: #000000;
-    margin-bottom: 10px;
-    font-family: 'Roboto-M';
+    margin-left: 4px;
 }
 
 
@@ -59,38 +65,101 @@
 	border: 0;
 }
 
-.i_info
+.i_base
 {
 	display: inline-block;
-    height: 20px;
-    margin-right: 5px;
+    height: 24px;
+    width: 24px;
     vertical-align: middle;
-    width: 20px;
     padding: 0 0 0 0;
-    margin-left: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    /*margin-left: 0 5px 0 10px;*/
+}
+
+.i_info
+{
 	background: rgba(0, 0, 0, 0) url("/img/function_info.png") no-repeat scroll center center;
+}
+
+.i_ram{
+	background: rgba(0, 0, 0, 0) url("/img/ic_ram.png") no-repeat scroll center center;
+}
+.i_ram_warn{
+	background: rgba(0, 0, 0, 0) url("/img/ic_ram_warn.png") no-repeat scroll center center;
+}
+
+.i_temp{
+	background: rgba(0, 0, 0, 0) url("/img/ic_tem.png") no-repeat scroll center center;
+}
+.i_temp_warn{
+	background: rgba(0, 0, 0, 0) url("/img/ic_tem_warn.png") no-repeat scroll center center;
+}
+
+.i_upload{
+	background: rgba(0, 0, 0, 0) url("/img/ic_upload.png") no-repeat scroll center center;
+}
+
+.i_download{
+	background: rgba(0, 0, 0, 0) url("/img/ic_download.png") no-repeat scroll center center;
+}
+
+.i_ip{
+	background: rgba(0, 0, 0, 0) url("/img/ic_ip.png") no-repeat scroll center center;
+}
+
+.i_qts{
+	background: rgba(0, 0, 0, 0) url("/img/qts_lite_24.png") no-repeat scroll center center;
+}
+
+.i_more{
+	position: absolute;
+    bottom: 0 !important;
+	background: rgba(0, 0, 0, 0) url("/img/more_n.png") no-repeat scroll center center;
+	cursor: pointer;
+	right: 5px;
+}
+.i_more:hover{
+	position: absolute;
+    bottom: 0 !important;
+	background: rgba(0, 0, 0, 0) url("/img/more_h.png") no-repeat scroll center center;
+	cursor: pointer;
+}
+
+.txtCpuType
+{
+	font-family: 'Roboto-R';
+	font-size: 16px;
+    color: #000000;
 }
 
 .cardInfoStyle
 {
+	font-family: 'Roboto-R';
 	font-size: 14px;
     color: #131313;
-    font-family: 'Roboto-R';
 }
 
-.urlStyle
-{
-	font-size: 13px;
-    color: #0071ba;
-    font-family: 'Roboto-R';
-    text-decoration: underline;
-    text-decoration-color: #0071ba;
+.textMemoryTemp{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+    color: #2f2f2f;
 }
-.urlStyle:hover, .urlStyle:focus {
-    color: #015def;
-    text-decoration: underline;
+
+.textMemoryTempAlert{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+    color: #f15703;
+}
+
+.textTxRx{
+	font-family: 'Roboto-R';
+	font-size: 13px;
+    color: #2f2f2f;
+}
+
+.txtCPUUsage{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #454545;
 }
 
 .progressBarCPU
@@ -114,6 +183,7 @@
     text-align: center;
     position: relative;
     display: inline-flex;
+    padding-left: 25px;
 }
 
 /*
@@ -138,6 +208,7 @@
     position: relative;
     display: inline-flex;
     border-left: 1px solid #eeeeee;
+    padding-left: 25px;
 	/*width: 50%;
     display: inline-block;
     float: right;
@@ -156,6 +227,8 @@
 table.bottomBorder {
     border-collapse: collapse;
     vertical-align: middle;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }
 table.bottomBorder td,
 table.bottomBorder th {
@@ -166,8 +239,6 @@ table.bottomBorder th {
 table.bottomBorder tr
 {
     height: 32px;
-	padding-top: 5px;
-	padding-bottom: 5px;
 }
 
 .rowHr{
@@ -176,33 +247,26 @@ table.bottomBorder tr
     margin-bottom: 10px;
 }
 
-.cell1{ width: 40%; }
-
-.cell2{ width: 60%; }
-
-.d1{ width: 28%; margin-left: 20px;}
+.d1{ width: 34%; min-width: 155px !important; vertical-align: middle; margin: auto;}
 
 .d2{
-	width: 33%;
+	width: 32%;
 	vertical-align: middle;
+	padding-left: 25px;
+	margin: auto;
 }
 
 .d3{
-	width: 33%;
+	width: 32%;
+	padding-left: 25px;
 	vertical-align: middle;
 	align-items: left;
+	margin: auto;
 }
+
+.d4{ min-width: 31px; }
 
 .cpuProgress
 {
-	margin-top: 20px;
-}
-
-.d4{ width: 6%;}
-
-.imgPosition
-{
-	padding-top: 110px;
-	padding-bottom: 10px;
-    vertical-align: bottom;
+	margin-top: 15px;
 }

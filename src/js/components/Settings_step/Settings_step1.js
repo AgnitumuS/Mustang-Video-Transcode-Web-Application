@@ -3,8 +3,11 @@ import Settings_step1_component from "./Settings_step1_component";
 import Select from "react-select";
 import {taskConfig,routeResp} from '../../config';
 import '../../css/style.css';
+import '../../css/react-select.css';
 //POP
 import Info from '../Info';
+
+import '../../css/settings.css';
 
 export default class Settings_step1 extends React.Component {
     constructor(props) {
@@ -12,10 +15,10 @@ export default class Settings_step1 extends React.Component {
        var dataConfig  = props.getDataConfig();
        var mycontentData = dataConfig.input;
        var mQuickTranscodeEnable = dataConfig.quickTranscodeEnable;
-      var myupdateStatus = false;
-      var mLiveUrl = "";
-      var mFile_value = null;
-      var mFileinfo = {
+       var myupdateStatus = false;
+       var mLiveUrl = "";
+       var mFile_value = null;
+       var mFileinfo = {
         "Duration":"",
         "Resolution":"",
         "audio":"",
@@ -60,14 +63,15 @@ export default class Settings_step1 extends React.Component {
           updateStatus:myupdateStatus,
           mQuickTranscodeEnable:mQuickTranscodeEnable,
           quickTranscodeEnableUse:quickTranscodeEnableUse,
-          titleDescription:"VOD,Live or File Transcoding is available. Quick transcode is supported by file transcoding."
+          titleDescription:"VOD, Live and File transcoding types are available. Quick transcode function is only for \"File\" transcoding."
         };
         this.Type_onChange=this.Type_onChange.bind(this);
         this.input_onChange = this.input_onChange.bind(this);
         this.handleChangeChk = this.handleChangeChk.bind(this);
 
-        //子層傳資料到這層
+
         this.change_status = this.change_status.bind(this);
+        this.change_next = this.change_next.bind(this);
 
     }
 
@@ -104,13 +108,12 @@ export default class Settings_step1 extends React.Component {
       this.setState({updateStatus:true});
     }
     input_onChange(e){
-      // console.log("e.target.value "+e.target.value);
       this.setState({mLiveUrl: e.target.value});
 
       this.setState({updateStatus:true});
     }
 
-    //###子層將參數傳到父層來
+
     change_status(mFile_value,mFileinfo) {
   	 if(mFile_value !=null){
          this.setState({
@@ -120,6 +123,13 @@ export default class Settings_step1 extends React.Component {
         this.setState({updateStatus:true});
      }
     }
+    change_next(){
+      this.setState({
+        mFile_value:null,
+        mFileinfo:null
+      });
+     this.setState({updateStatus:true});
+    }
     //####End
 
     checkData(){
@@ -127,7 +137,6 @@ export default class Settings_step1 extends React.Component {
       var item=null;
       if(this.state.mType != null){
         if(this.state.mType.Task_Type_value=="live"){
-          // console.log("mliveUrl "+this.state.mLiveUrl);
           if(this.state.mLiveUrl != null){
               if(this.state.mLiveUrl.length > 0){
                 state=true;
@@ -138,7 +147,6 @@ export default class Settings_step1 extends React.Component {
           }
         }else{
           if(this.state.mFile_value != null && this.state.mFileinfo != null ){
-              // console.log("mFile_value "+this.state.mFile_value);
               state=true;
               item={
                 "filepath" : this.state.mFile_value,
@@ -173,7 +181,6 @@ export default class Settings_step1 extends React.Component {
       var mTypeShow=null;
       if(this.state.mType != null){
         const mTypeValue=this.state.mType.Task_Type_value;
-       //console.log("gedar ="+mTypeValue);
         if(mTypeValue=="live"){
           mTypeShow=<input id="SettingInputName"
                  disabled = {this.state.Live_inputkey_enable}
@@ -188,11 +195,13 @@ export default class Settings_step1 extends React.Component {
            mTypeShow=<Settings_step1_component
                 mFile_value={this.state.mFile_value}
                 callbackParent={this.change_status}
+                callbacknext = {this.change_next}
         	/>
         }else if (mTypeValue=="file"){
 			        	mTypeShow=<Settings_step1_component
                         mFile_value={this.state.mFile_value}
 						            callbackParent={this.change_status}
+			        				callbacknext = {this.change_next}
 						    	/>
         }
       }
@@ -209,12 +218,15 @@ export default class Settings_step1 extends React.Component {
       const marginYellow="10px";
       const marginGreenLight="15px";
       const marginPurple="30px";
+      const marginOrange="35px";
+      const margin2Orange="70px";
+
       return (
-        <div>
+        <div className="settings_step1">
           <div style={{marginTop:marginBlue}}></div>
-          <div >{this.state.titleDescription}</div>
+          <div style={{marginLeft:margin2Orange}}>{this.state.titleDescription}</div>
           <div style={{marginTop:marginBlue}}></div>
-          <div style={{float:"left",width:"115px", marginRight:marginYellow}}>Task Type:</div>
+          <div style={{float:"left",width:"115px",  marginRight:marginYellow,marginLeft:margin2Orange}}>Task Type:</div>
           <div style={{float:"left",width:"200px"}}>
             <Select
               onChange={this.Type_onChange}

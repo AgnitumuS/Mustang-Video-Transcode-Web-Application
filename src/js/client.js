@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import { Router, Route, IndexRoute, hashHistory } from "react-router";
 import Overview from "./pages/Overview";
 import Layout from "./pages/Layout";
+import HistoryPage from "./pages/History";
 import Process0 from "./pages/Process";
-import View from "./pages/View";
-import Config from "./pages/Config";
 import { get_cpu_gpu,get_cardInfo} from './api';
 import { cardInfo } from './config';
 
@@ -26,8 +25,7 @@ const callback = function(){
               <Route path="/" component={Layout}>
                 <IndexRoute component={Overview}></IndexRoute>
                 {Process_List}
-                <Route path="view" name="view" component={View}></Route>
-                <Route path="config" name="config" component={Config}></Route>
+                <Route path="history" name="history" component={HistoryPage}></Route>
               </Route>
             </Router>
           );

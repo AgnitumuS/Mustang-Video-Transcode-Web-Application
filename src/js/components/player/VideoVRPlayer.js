@@ -15,8 +15,6 @@ class VideoVRPlayer extends Component{
     }
 
     initPlayer(){
-      console.log("initPlayer~~~~");
-
       var self=this;
       if(this.player){
         this.player.src({
@@ -68,7 +66,6 @@ class VideoVRPlayer extends Component{
         this.initPlayer();
     }
     componentWillUnmount() {
-      console.log("VRvideo.destroy()");
       this.player.dispose();
       this.player=null;
     }

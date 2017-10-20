@@ -6,10 +6,8 @@
 
 .navBar {
     background-color: white;
-    width: 90%;
     vertical-align: text-bottom;
     text-align: left;
-    margin-left: 100px;
 }
 
 .navBar .borderBottom {
@@ -29,7 +27,7 @@
     display: inline-block;
     font-size: 24px;
     color: #1c6ede;
-
+    height: 44px;
 }
 .navBar .navWizardBox {
     display: inline-block;
@@ -39,6 +37,7 @@
 .navBar .navBox {
     display: inline-block;
     float: right;
+    height: 44px;
 }
 
 .navBar .navBox ul li {
@@ -68,6 +67,37 @@
     margin:0 30px;
     display: inline-block;
 }
+
+.navBar .f_appIcon{
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    margin-left: 23px;
+    margin-right: 12px;
+    background: rgba(255, 255, 255, 0) url("/img/App Icon/mvt_24.png") no-repeat center center;
+}
+
+.navBar .i_about{
+  display: inline-block;
+  vertical-align:middle;
+  height: 20px;
+  width: 20px;
+  margin-left:15px;
+  margin-right: 25px;
+  margin-top: 7px;
+  background: rgba(255, 255, 255, 0) url("/img/about_i.png") no-repeat center center;
+}
+
+.navBar .i_help{
+  display: inline-block;
+  vertical-align:middle;
+  height: 20px;
+  width: 20px;
+  margin-top: 7px;
+ background: rgba(255, 255, 255, 0) url("/img/help_i.png") no-repeat center center;
+}
+
 
 /*
 .navDropdownMenu{
@@ -236,9 +266,9 @@
   animation: sideToBigMenu 0.5s ease;
 }
 
-.bm-menu-wrap {
+/*.bm-menu-wrap {
   left: 0;
-}
+}*/
 
 .bm-menu .i_side_icons {
     display: inline-block;
@@ -249,6 +279,7 @@
     padding: 0 0 0 0;
     margin-top: 0px;
     margin-bottom: 0px;
+     margin-left: 10px;
 }
 .bm-menu .i_side_home {
     background: rgba(255, 255, 255, 0) url("/img/side_overview.png") no-repeat scroll center center;
@@ -262,18 +293,67 @@
 .bm-menu .i_side_config {
     background: rgba(255, 255, 255, 0) url("/img/side_cards info.png") no-repeat scroll center center;
 }
+.bm-menu .i_side_log {
+    background: rgba(255, 255, 255, 0) url("/img/side_log.png") no-repeat scroll center center;
+}
 .bm-menu .i_side_demo {
     background: rgba(255, 255, 255, 0) url("/img/side_cards info.png") no-repeat scroll center center;
 }
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #373a47;
+.i_side_collapse {
+    display: inline-block;
+    height: 6px;
+    width: 10px;
+    /*margin-right: 13px;*/
+    vertical-align: middle;
+    /*padding: 0 0 0 0;
+    margin: 0 0 0 0;*/
+    background: rgba(255, 255, 255, 0) url("/img/item_collapse.png") no-repeat scroll center center;
 }
+.i_side_expand {
+    display: inline-block;
+    height: 6px;
+    width: 10px;
+    /*margin-right: 13px;*/
+    vertical-align: middle;
+    /*padding: 0 0 0 0;
+    margin: 0 0 0 0;*/
+    background: rgba(255, 255, 255, 0) url("/img/item_expand.png") no-repeat scroll center center;
+}
+/* Morph shape necessary with bubble or elastic */
+/*.bm-morph-shape {
+  fill: #373a47;
+}*/
 
 /* Wrapper for item list */
 .bm-item-list {
   color: #ECF5FF;
-  padding: 0.8em;
+  width: 100%;
+   padding: 10px 0 10px 0;
+   height: 60px important;
+}
+/*
+.bm-item-list:hover {
+  background-color: black;
+}*/
+
+.testHover{
+  width: 100%;
+  padding: 10 0 10 0;
+  margin: 0 0 0 0;
+}
+
+.testHover:hover{
+    background-color: #1d6fde;
+  }
+
+.bm-div-hr{
+  /*border-bottom: 1px solid #e2e2e2;
+  margin: 10px 0;*/
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+   padding: 0 -150px  0 -170px;
+   margin: 0 0 0 0;
+ /* padding: 0 0 0 -100px;
+  margin: 0 0 0 -100px;*/
 }
 
 a:hover{
@@ -290,26 +370,7 @@ a:focus {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.cpuTextRegular
-{
-    font-family: 'Roboto-B';
-    font-size: 25px;
-    text-anchor: middle;
-}
 
-.cpuTextAlert
-{
-    font-family: 'Roboto-B';
-    font-size: 25px;
-    text-anchor: middle;
-}
-
-.gpuText_Regular
-{
-    font-family: 'Roboto-B';
-    font-size: 25px;
-    text-anchor: middle;
-}
 
 .gradiant{
     background: linear-gradient(to right, #2ed9e6 , #00aab7);
@@ -318,7 +379,7 @@ a:focus {
 .runningInfo{
     font-family: 'Roboto-R';
     font-size: 14px;
-    color: #131313;
+    color: #027dff;
 }
 
 .completeInfo{
@@ -332,7 +393,11 @@ a:focus {
     font-size: 14px;
     color: #cf0b0f;
 }
-
+.i_status_error_text
+{
+	text-decoration: underline;
+	cursor: pointer;
+}
 .rowHr{
 	border-bottom: 1px solid #eeeeee;
     padding-top: 10px;
@@ -348,3 +413,162 @@ a:focus {
 {
     cursor: no-drop;
 }
+
+/* tooltip*/
+.tipBox {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.tipBox > div.tipBox_main {
+    display: none;
+}
+
+.tipBox.open > div.tipBox_main {
+    background: white;
+    border: 1px solid #767676;
+    display: block;
+    position: absolute;
+    height: auto;
+    text-align: left;
+    width: 300px;
+    padding: 16px 12px;
+    z-index: 1;
+    line-height: 14px;
+}
+
+.tipBox div.tipBox_main span {
+    margin: 0 !important;
+    font-family: 'Roboto-R' !important;
+    font-size: 12px;
+    color: #2f2f2f;
+}
+
+  .taskModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    border: 1px solid #767676;
+    background-color: #f6f8f9;
+    z-index: 1001;
+  }
+
+  .taskModalRight {
+    position: absolute;
+    top: 50%;
+    right: 60%;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    border: 1px solid #767676;
+    background-color: #f6f8f9;
+    z-index: 1001;
+  }
+
+  .taskOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: none;
+  }
+
+    /* Arrow right */
+  .taskModalRight .arrow_r_int {
+    Width: 0px;
+    Height: 0px;
+    Border-width: 15px;
+    Border-style: solid;
+    Border-color: transparent transparent transparent #333 ;
+    Position: absolute;
+    Top: 20px;
+    Right: -30px;
+  }
+  /* Arrow right - border */
+  .taskModalRight .arrow_r_out {
+    Width: 0px;
+    Height: 0px;
+    Border-width: 15px;
+    Border-style: solid;
+    Border-color: transparent transparent transparent #fff;
+    Position: absolute;
+    Top: 20px;
+    Right: -29px;
+  }
+
+    .mwt_border{
+     width:auto;
+     height:90px;
+     text-align:center;
+     background:#fff;
+     position:relative;
+     border: solid 1px #333;
+     margin:30px;
+     padding:30px;
+    }
+    /*蝞剝撌�*/
+    .taskModal .arrow_l_int{
+
+     width:0px;
+     height:0px;
+     border-width:15px;
+     border-style:solid;
+     border-color:transparent #333 transparent  transparent ;
+     position:absolute;
+     top:20px;
+     left:-30px;
+    }
+    /*蝞剝撌�-����*/
+    .taskModal .arrow_l_out{
+     width:0px;
+     height:0px;
+     border-width:15px;
+     border-style:solid;
+     border-color:transparent #fff transparent transparent ;
+     position:absolute;
+     top:20px;
+     left:-29px;
+    }
+
+    .emptyTaskBox
+    {
+       min-width: 420px;
+       padding-top : 35 px;
+       min-height: 90px;
+       vertical-align: middle;
+       text-align: left;
+       padding-left: 55px;
+       padding: 35px 55px 0 55px;
+       border-style: 1px solid #131313;
+    }
+  .urlStyle
+  {
+      color: #0071ba;
+      text-decoration: underline;
+  }
+  .urlStyle:hover, .urlStyle:focus {
+      color: #015def;
+      text-decoration: underline;
+  }
+
+  .urlStyle:active {
+      color: #7eaefe;
+      text-decoration: underline;
+  }
+
+  .urlStyle:visited {
+      color: #753f94;
+      text-decoration: underline;
+  }
+
+  .inLineEditFontStyle{
+    font-size: 13px;
+    color: #131313;
+    font-family: 'Roboto-R';
+  }

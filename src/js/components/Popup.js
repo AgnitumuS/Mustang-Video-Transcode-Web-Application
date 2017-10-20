@@ -1,9 +1,3 @@
-/*
-  Modify By: Nayana
-  Date: 16 June 2017
-  Description : URL View is change into dynamicaly generated table
-*/
-
 import React from "react";
 import ReactDOM from 'react-dom';
 import Popup from 'react-popup';
@@ -16,17 +10,6 @@ import '../css/pop.css';
 import '../css/normal.css';
 import '../css/icon.css';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    padding                : '0 0 0 0',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 export default class MyModal extends React.Component {
   constructor(props) {
    super(props);
@@ -38,6 +21,7 @@ export default class MyModal extends React.Component {
       isVR:false,
       cardSelect:this.props.cardSelect,
       cpuSelect:this.props.cpuSelect,
+      sta:null
    };
     this.msg_onChange = this.msg_onChange.bind(this);
     this.myfunc = this.myfunc.bind(this);
@@ -55,8 +39,6 @@ export default class MyModal extends React.Component {
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    //this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -70,8 +52,15 @@ export default class MyModal extends React.Component {
       return;
     }
     var data = resp[routeResp.Data];
-
-    // console.log("Popup myfunc data "+JSON.stringify(data));
+    var obj = data.myurl;
+    var vquality = JSON.stringify(obj[0].vquality);
+    if (typeof vquality !== "undefined"){
+    	var sta = 'QP Value';
+    	this.setState({sta:sta});
+    }else{
+    	var sta = 'BitRate';
+    	this.setState({sta:sta});
+    }
 
     this.setState(
       {
@@ -115,7 +104,6 @@ export default class MyModal extends React.Component {
 
   renderDataList(){
     var DataList = [];
-
       if(this.state.myurl){
           for (var i = 0; i < this.state.myurl.length; i++) {
             DataList.push(this.renderData(i, this.state.myurl[i]));
@@ -139,14 +127,14 @@ export default class MyModal extends React.Component {
           <tr key={i} className= {style}>
             <td>{row.resolution} &nbsp;  px</td>
             <td className = "alignRight">{row.framerate} &nbsp; fps</td>
-            <td className = "alignRight">{row.vquality}</td>
+            <td className = "alignRight">{row.vquality}{row.vbitrate}</td>
             <td>
                 <span style={{float:"left"}} className="spanUrl"> &nbsp; {row.url} </span> &nbsp;
                 <button className="i_area_16x16 i_area_btn_copy" style={{float:"right", marginLeft:marginYellow , marginRight:marginYellow}}  onClick={()=>this.copyToClipboard(row.url)}/>
                 <div style={{clear:"both"}}></div>
             </td>
             <td>
-                <MyPopup type={this.state.type} url={row.url} isVR={this.state.isVR}/>
+                <MyPopup type={this.state.type} url={row.url} isVR={this.state.isVR} />
             </td>
           </tr>
       )
@@ -154,8 +142,10 @@ export default class MyModal extends React.Component {
 
 
   render() {
+
     const title = ["Resolution","Frameset","QP Value","URL","Open "];
     var TitleList = [];
+
 
     return (
       <div>
@@ -163,7 +153,7 @@ export default class MyModal extends React.Component {
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            style={customStyles}
+            style={resetModalStyle}
             contentLabel="Example Modal"
         >
           <div className="popupContainer">
@@ -184,7 +174,7 @@ export default class MyModal extends React.Component {
                          <tr >
                            <th> Resolution </th>
                            <th> Frameset </th>
-                           <th> &nbsp; QP Value &nbsp;</th>
+                           <th> &nbsp; {this.state.sta} &nbsp;</th>
                            <th> URL </th>
                            <th> &nbsp; Open &nbsp;</th>
                          </tr>
@@ -204,5 +194,30 @@ export default class MyModal extends React.Component {
 
     );
   }
-
 }
+
+const resetModalStyle = (() => {
+  // Styles
+  const initial = null
+
+  const overlay = {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(0, 0, 0, 0.5)',
+    zIndex: 100
+  }
+  const content = {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    padding                : '0 0 0 0',
+    transform             : 'translate(-50%, -50%)'
+  }
+
+  return {overlay, content}
+})()

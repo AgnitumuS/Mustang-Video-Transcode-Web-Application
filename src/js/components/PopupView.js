@@ -7,16 +7,6 @@ import '../css/style.css';
 import '../css/pop.css';
 import '../css/normal.css';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 export default class MyModalView extends React.Component {
   constructor(props) {
    super(props);
@@ -41,7 +31,6 @@ shouldComponentUpdate(nextProps,nextState){
 }
 
  openModal() {
-  //  this.post_api(this.props.Job_Id_no);
   this.setState({modalIsOpen: true});
 
   }
@@ -65,7 +54,7 @@ shouldComponentUpdate(nextProps,nextState){
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          style={customStyles}
+          style={resetModalStyle}
           contentLabel="Example Modal"
         >
           <div >
@@ -92,3 +81,29 @@ shouldComponentUpdate(nextProps,nextState){
     );
   }
 }
+
+const resetModalStyle = (() => {
+  // Styles
+  const initial = null
+
+  const overlay = {
+    position          : 'fixed',
+    top               : 0,
+    left              : 0,
+    right             : 0,
+    bottom            : 0,
+    backgroundColor   : 'rgba(0, 0, 0, 0.5)',
+    zIndex: 101
+  }
+  const content = {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    padding                : '0 0 0 0',
+    transform             : 'translate(-50%, -50%)'
+  }
+
+  return {overlay, content}
+})()

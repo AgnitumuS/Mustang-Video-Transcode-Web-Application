@@ -11,10 +11,11 @@ const appConfigHead = {
   }
 };
 export const routeResp = {
-	Result:"result",//success/fail
+	Result:"result",//success/fail/warning
   Data:"msg",//return data
 	SuccessResult:"Success",
 	FailResult:"Fail",
+  WarningResult:"Warning"
 }
 const HOST_API_URL_HEAD= DebugUse?("http://"+appConfigHead.HOST_API.host+":"+appConfigHead.HOST_API.port+appConfigHead.HOST_API.mainPath):(appConfigHead.HOST_API.mainPath);
 
@@ -59,13 +60,13 @@ export const appConfig = {
       url:HOST_API_URL_HEAD+"/cpujobinfo/{cardid}",
       method:"GET"
     },
-    GetJob:{
-      url:HOST_API_URL_HEAD+"/jobs/{jobid}",
-      method:"GET"
-    },
     //Special API    --------------------
     TerminateJob:{
       url:HOST_API_URL_HEAD+"/terminate",
+      method:"POST"
+    },
+    TerminateJobArray:{
+      url:HOST_API_URL_HEAD+"/terminatejobs",
       method:"POST"
     },
     //Special API From FILE   --------------------
@@ -83,11 +84,49 @@ export const appConfig = {
       method:"GET"
     },
     SelectJobsbyTimeInterval:{
-      url:HOST_API_URL_HEAD+"/jobs/timeinterval?pageIdx={index}&countPerPage={cnt}&startDate={datetime}&endDate={datetime}&cardid={id}&cpuid={cpuid}",
+      url:HOST_API_URL_HEAD+"/jobs/timeinterval?pageIdx={index}&countPerPage={cnt}&startDate={datetime}&endDate={datetime}&cardid={id}&cpuid={cpuid}&type={type}&status={status}",
       method:"GET"
     },
+    SelectJobsbyCondition:{
+        url:HOST_API_URL_HEAD+"/jobs/timeinterval?pageIdx={index}&countPerPage={cnt}&startDate={datetime}&endDate={datetime}&cardid={id}&cpuid={cpuid}&type={type}&status={status}",
+        method:"GET"
+      },
     GetHomeDirectoryPathOfHostMachine:{
       url:HOST_API_URL_HEAD+"/homedir",
+      method:"GET"
+    },
+    GetJob:{
+      url:HOST_API_URL_HEAD+"/jobs/{jobid}",
+      method:"GET"
+    },
+    DeleteJob:{
+      url:HOST_API_URL_HEAD+"/jobs/{jobid}",
+      method:"DELETE"
+    },
+    // Add API -----
+    UpdateNetworkConfig:{
+      url:HOST_API_URL_HEAD+"/updatenetworkconfig",
+      method:"UPDATE"
+    },
+    UpdateCardName:{
+        url:HOST_API_URL_HEAD+"/updateQtsName",
+        method:"UPDATE"
+      },
+    //
+    GetCardJobInformation:{
+      url:HOST_API_URL_HEAD+"/cpujobinfo/{cardid}",
+      method:"GET"
+    },
+    GetMemoryUsageInfo:{
+      url:HOST_API_URL_HEAD+"/memoryusage",
+      method:"GET"
+    },
+    GetCpuTemperature:{
+      url:HOST_API_URL_HEAD+"/cputempinfo",
+      method:"GET"
+    },
+    GetCpuTrafficInfo:{
+      url:HOST_API_URL_HEAD+"/trafficinfo",
       method:"GET"
     },
   },

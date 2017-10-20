@@ -14,15 +14,7 @@ export default class View extends React.Component {
     this.state = {
       playerType:props.playerType,
       Url:props.Url,
-      isVR:props.isVR,
-      // isVR:true,
-      // playerType:"dash",
-      // Url: '../../assets/shark.mp4',
-      // Url: 'http://192.168.0.103:8100/pollytest',
-      // Url: 'http://192.168.0.103:8000/hls/pollytest.m3u8',
-      // Url: 'http://192.168.0.103:8000/dash/pollytest.mpd',
-      // Url: 'rtmp://192.168.0.103:1935/live/pollytest'
-
+      isVR:props.isVR
     }
 
   }
@@ -31,8 +23,6 @@ export default class View extends React.Component {
 
   }
   componentDidMount(){
-    // console.log("View:isVR~~~~~~");
-    // console.log(this.state.isVR);
   }
   componentWillUnmount(){
 
@@ -123,7 +113,6 @@ export default class View extends React.Component {
     }
     return (
       <div>
-
         {player}
       </div>
     );

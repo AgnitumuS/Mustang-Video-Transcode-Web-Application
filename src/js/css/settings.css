@@ -1,0 +1,65 @@
+.videoinfo {
+	font-family: 'Roboto-R';
+	font-size: 13px;
+	color: #000000;
+}
+.settings_step{
+	font-family: 'Roboto-R';
+	font-size: 13px;
+	color: #131313;
+}
+.settings_step1 div{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #000000;
+}
+.settings_step2 div{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #000000;
+}
+.settings_step3_title{
+	font-family: 'Roboto-R';
+	font-size: 13px;
+	color: #131313;
+}
+.settings_step3_apart{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #000000;
+}
+.settings_step3_apart2{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #131313;
+}
+.settings_step3_apart3{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #131313;
+}
+.settings_step3_bpart{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #000000;
+}
+.settings_step3_cpart{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #000000;
+}
+.settings_step4_title {
+	font-family: 'Roboto-R';
+	font-size: 13px;
+	color: #131313;
+}
+.settings_step4_apart{
+	font-family: 'Roboto-R';
+	font-size: 14px;
+	color: #000000;
+}
+.settings_step4_bpart{
+	font-family: 'Roboto-R';
+	font-size: 13px;
+	color: #131313;
+}

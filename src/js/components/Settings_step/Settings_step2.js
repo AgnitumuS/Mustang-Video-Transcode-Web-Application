@@ -3,6 +3,7 @@ import {taskConfig,taskConfigVCodecUse,taskConfigVStreamUse,taskConfigVFileUse,t
 import Select from "react-select";
 //POP
 import Info from '../Info';
+import '../../css/settings.css';
 
 export default class Settings_step2 extends React.Component {
   constructor(props){
@@ -26,7 +27,6 @@ export default class Settings_step2 extends React.Component {
        "abitrateid" : 3
      };
     }
-    // console.log("myOutput "+JSON.stringify(myOutput));
     //---Stream check
     var myProtocol_Fileextension = null;
     if(fileTypeEnable){
@@ -60,7 +60,6 @@ export default class Settings_step2 extends React.Component {
         myRefConf=taskConfigVFileUseQuick;
         myTaskConfig.fileType=taskConfigFileUseQuick;
       }
-      // console.log("myRefConf "+JSON.stringify(myRefConf));
       var myVCodecWithTypeTmp = _.find(myRefConf, {File_Type_value:myProtocol_Fileextension});
       if(myVCodecWithTypeTmp == null){
         myVCodecWithTypeTmp = myRefConf[0];
@@ -158,7 +157,10 @@ export default class Settings_step2 extends React.Component {
        fileTypeEnable:fileTypeEnable,
        myTaskConfig:myTaskConfig,
        mQuickTranscodeEnable:mQuickTranscodeEnable,
-       titleDescription:"Select Output protocols (RTMP,HLS,DASH,ICECAST) or File Format. Multiple Video Codecs(H.264,H.265,VP8,VP9) and Audio Codecs(AAC,MP3,Vorbis) formats supports."
+       titleDescription:"1. Select an output protocol: RTMP, HLS, DASH, ICECAST  (Live or VOD)",
+       titleDescription1:"  Select an output file format: MKV, MP4, FLV, F4V, AVI, WEBM, MPEG, MOV, MPG (File)",
+       titleDescription2:"2. Select a video codec: H.264, H.265, VP8, VP9",
+       titleDescription3:"3. Select an audio codec: AAC, MP3, Vorbis, Disable"
     };
     this.Video_Codec_onChange = this.Video_Codec_onChange.bind(this);
     this.Video_Level_onChange = this.Video_Level_onChange.bind(this);
@@ -378,14 +380,20 @@ export default class Settings_step2 extends React.Component {
       const marginYellow="10px";
       const marginGreenLight="15px";
       const marginPurple="30px";
+      const marginOrange="35px";
+      const marginPush = "65px";
+      const margin2Orange="70px";
+      const margin2Orange_Purple = "110px";
+      const marginBrown="25px";
+      const marginPurple_Brown="55px";
 
     return (
-      <div>
+      <div className="settings_step2">
         <div style={{marginTop:marginBlue}}></div>
-        <div >{this.state.titleDescription}</div>
+        <div style={{marginLeft:margin2Orange}}>{this.state.titleDescription}</div><div style={{marginLeft:"85px"}}>{this.state.titleDescription1}</div><div style={{marginLeft:margin2Orange}}>{this.state.titleDescription2}</div><div style={{marginLeft:margin2Orange}}>{this.state.titleDescription3}</div>
         <div style={{marginTop:marginBlue}}></div>
         <div>
-          <div style={{float:"left",width:"115px", marginRight:marginYellow}}>{typeTitle}</div>
+          <div style={{float:"left",width:"115px", marginRight:marginYellow,marginLeft:margin2Orange}}>{typeTitle}</div>
           <div style={{width:"200px",float:"left"}}>
             {typeContent}
           </div>
@@ -394,19 +402,20 @@ export default class Settings_step2 extends React.Component {
         </div>
         <div style={{marginTop:marginBlue}}></div>
           <div style={{float:"left", width:"50%"}}>
-            <div style={{float:"left"}}><img src={video_icon} width={"24px"} height={"24px"}/></div>
+            <div style={{float:"left", marginLeft:margin2Orange}}><img src={video_icon} width={"24px"} height={"24px"}/></div>
             <div style={{float:"left", marginLeft:marginYellow}}>Video Options</div>
+            <div id="line_vertical" style={{width: 2, height: 26, background: '#e2e2e2',marginLeft:445}} />
             <div style={{clear:"both"}}></div>
           </div>
           <div style={{float:"left", width:"50%"}}>
-            <div style={{float:"left"}}><img src={audio_icon} width={"24px"} height={"24px"}/></div>
+            <div style={{float:"left",marginLeft:marginBrown}}><img src={audio_icon} width={"24px"} height={"24px"}/></div>
             <div style={{float:"left", marginLeft:marginYellow}}>Audio Options</div>
             <div style={{clear:"both"}}></div>
           </div>
           <div style={{clear:"both"}}></div>
-        <div style={{marginTop:marginBlue}}></div>
+          <div><div id="line_vertical" style={{width: 2, height: 20, background: '#e2e2e2',marginLeft:445}} /></div>
           <div style={{float:"left", width:"50%"}}>
-            <div style={{float:"left",width:"110px", marginLeft:marginPurple, marginRight:marginYellow}}>Video Codec:</div>
+            <div style={{float:"left",width:"110px", marginLeft:margin2Orange_Purple, marginRight:marginYellow}}>Video Codec:</div>
             <div style={{float:"left",width:"200px"}}>
               <Select
                     onChange={this.Video_Codec_onChange}
@@ -415,10 +424,11 @@ export default class Settings_step2 extends React.Component {
                     value={this.state.Video_Codec_value}
                     clearable={clearable}/>
             </div>
+              <div id="line_vertical" style={{width: 2, height: 26, background: '#e2e2e2',marginLeft:445}} />
             <div style={{clear:"both"}}></div>
           </div>
           <div style={{float:"left", width:"50%"}}>
-            <div style={{float:"left",width:"110px", marginLeft:marginPurple, marginRight:marginYellow}}>Audio Codec:</div>
+            <div style={{float:"left",width:"110px", marginLeft:marginPurple_Brown, marginRight:marginYellow}}>Audio Codec:</div>
             <div style={{float:"left",width:"200px"}}>
               <Select
                       onChange={this.Audio_Codec_onChange}
@@ -431,9 +441,9 @@ export default class Settings_step2 extends React.Component {
             <div style={{clear:"both"}}></div>
           </div>
           <div style={{clear:"both"}}></div>
-        <div style={{marginTop:marginGreenLight}}></div>
+          <div><div id="line_vertical" style={{width: 2, height: 15, background: '#e2e2e2',marginLeft:445}} /></div>
           <div style={{float:"left", width:"50%"}}>
-            <div style={{float:"left",width:"110px", marginLeft:marginPurple, marginRight:marginYellow}}>Video Profile:</div>
+            <div style={{float:"left",width:"110px", marginLeft:margin2Orange_Purple, marginRight:marginYellow}}>Video Profile:</div>
             <div style={{float:"left",width:"90px"}}>
               <input name="Video_Profile_value" type="radio" disabled={vprofileStage==0} value={valMain[0]} checked={this.state.Video_Profile_value===valMain[0]} onChange={x=>this.Video_Profile_onChange(valMain[0])}/>
               <div style={{float:"left", marginLeft:marginYellow}}>Main</div>
@@ -443,10 +453,11 @@ export default class Settings_step2 extends React.Component {
               <input name="Video_Profile_value" type="radio" disabled={vprofileStage!=1} value={valMain[1]} checked={this.state.Video_Profile_value===valMain[1]} onChange={x=>this.Video_Profile_onChange(valMain[1])}/>
               <div style={{float:"left", marginLeft:marginYellow}}>High</div>
             </div>
+            <div id="line_vertical" style={{width: 2, height: 26, background: '#e2e2e2',marginLeft:445}} />
             <div style={{clear:"both"}}></div>
           </div>
           <div style={{float:"left", width:"50%"}}>
-            <div style={{float:"left",width:"110px", marginLeft:marginPurple, marginRight:marginYellow}}>Audio Bitrate:</div>
+            <div style={{float:"left",width:"110px", marginLeft:marginPurple_Brown, marginRight:marginYellow}}>Audio Bitrate:</div>
             <div style={{float:"left",width:"200px"}}>
               <Select
                   onChange={this.Audio_BitRate_onChange}
@@ -459,9 +470,9 @@ export default class Settings_step2 extends React.Component {
             <div style={{clear:"both"}}></div>
           </div>
           <div style={{clear:"both"}}></div>
-        <div style={{marginTop:marginGreenLight}}></div>
+          <div><div id="line_vertical" style={{width: 2, height: 15, background: '#e2e2e2',marginLeft:445}} /></div>
           <div style={{float:"left", width:"50%"}}>
-            <div style={{float:"left",width:"110px", marginLeft:marginPurple, marginRight:marginYellow}}>Level:</div>
+            <div style={{float:"left",width:"110px", marginLeft:margin2Orange_Purple, marginRight:marginYellow}}>Level:</div>
             <div style={{float:"left",width:"200px"}}>
               <Select
                   onChange={this.Video_Level_onChange}
@@ -471,11 +482,12 @@ export default class Settings_step2 extends React.Component {
                   disabled={vprofileStage==0}
                   clearable={clearable}/>
             </div>
+              <div id="line_vertical" style={{width: 2, height: 26, background: '#e2e2e2',marginLeft:445}} />
             <div style={{clear:"both"}}></div>
           </div>
           <div style={{float:"left", width:"50%"}}></div>
           <div style={{clear:"both"}}></div>
-        <div style={{marginTop:marginGreenLight}}></div>
+          <div><div id="line_vertical" style={{width: 2, height: 15, background: '#e2e2e2',marginLeft:445}} /></div>
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import { cardInfo,appConfig,routeResp } from '../config';
+import { appConfig,routeResp } from '../config';
 import { filesInfo } from './data/mediadb';
 import Request from 'superagent';
 
@@ -58,7 +58,6 @@ var tmp = "";
        callback(resp);
        console.log("MY get_file_list err"+JSON.stringify(err));
      } else {
-      //  console.log("MY get_file_list "+JSON.stringify(res.body));
        var homedir = res.body.homedir;
        if(homedir == undefined){
          homedir = "/";
@@ -178,7 +177,6 @@ export const get_file_info = function(fileinput,callback){
 
   var url = appConfig.HOST_API.GetDetailAPI.url;
   var body = { path: path,filename:filename};
-  // console.log("get_file_info body "+JSON.stringify(body));
   Request.post(url).set('Content-Type', 'application/json')
   .send(body)
   .end(function(err, res){
@@ -188,24 +186,34 @@ export const get_file_info = function(fileinput,callback){
       resp[routeResp.Data]=err;
       callback(resp);
     } else {
-      // console.log("get_file_info resp "+JSON.stringify(res.body));
       var InfoGeneral=res.body["General"];
       var InfoVideo=res.body["Video"];
       var InfoAudio=res.body["Audio"];
-      if(InfoGeneral == undefined || InfoVideo==undefined || InfoAudio==undefined ){
+      if(InfoGeneral == undefined || InfoVideo==undefined ){
         var resp = {};
   		  resp[routeResp.Result]=routeResp.FailResult;
         resp[routeResp.Data]="Info format error";
         callback(resp);
+        return;
+      }
+      else if(InfoAudio==undefined){
+        InfoAudio=res.body["Audio #1"];
+        if(InfoAudio==undefined){
+          var resp = {};
+    		  resp[routeResp.Result]=routeResp.FailResult;
+          resp[routeResp.Data]="Info format error";
+          callback(resp);
+          return;
+        }
       }
       var UniqueID = InfoGeneral["Unique ID"];
       var mCompletename =InfoGeneral["Complete name"];
       var mvideo = InfoVideo["Format"];
-      var mformat = InfoAudio["Format"];  //音訊編碼
+      var mformat = InfoAudio["Format"];  //Audio coding
       var mfsize = InfoGeneral["File size"];
-      var mDuration = InfoGeneral["Duration"]; //播放時間
+      var mDuration = InfoGeneral["Duration"]; //play time
       var mbitrate = InfoGeneral["Overall bit rate"]; //bitrate
-      var maudiorate = InfoAudio["Sampling rate"]; //採樣率
+      var maudiorate = InfoAudio["Sampling rate"]; //Sampling Rate
       var mfps = InfoVideo["Frame rate"]; //fps
       var mW = InfoVideo["Width"];
       if(mW != undefined){

@@ -1,3 +1,53 @@
+table{
+  font-family: 'Roboto-R';
+  border-collapse: collapse;
+  width: 100%;
+}
+td,th {
+    border: 1px solid #dddddd;
+}
+
+/* Table.js */
+.table-fixed thead {
+     background-color:#7d8992;
+     text-align: center;
+     color:#ffffff;
+}
+
+.table-fixed tbody {
+    display:block;
+    overflow-y:scroll;
+}
+
+.table-fixed thead, .tbody-fixed tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+
+.table-fixed thead {
+    width: calc( 100% - 1em )
+}
+
+.tr-fixed th{
+	text-align:center;
+  height:32px;
+}
+
+/*Table body height*/
+.tbody-fixed-height-cardProcess{
+  height: calc( 100vh - 456px )
+}
+
+.tbody-fixed-height-historyProcess{
+  height: calc( 100vh - 294px )
+}
+
+.tbody-fixed-height-portList{
+  height: calc( 96px )
+}
+
+
 #css_table {
      width: 100%;
      font-size: 14px;
@@ -43,10 +93,82 @@
 	 float: left;
   }
 #css_td6_3 {
-	 clear:left;
+	 float: left;
+  }
+#css_td6_4 {
+	 float:left;
   }
 
 
 #bottom {
 	height: 30px;
   }
+.cell1 {
+  display: table-cell;
+  width: 300px;
+  background:#f6f8f9;
+}
+.cell2 {
+  display: table-cell;
+  width: 300px;
+  border-top : 1px solid #e2e2e2;
+  background:#f6f8f9;
+}
+.cell3 {
+  display: table-cell;
+  width: 300px;
+  background:#f6f8f9;
+}
+.cell4 {
+  display: table-cell;
+  width: 300px;
+  background:#f6f8f9;
+  height:30px;
+}
+.cell5 {
+  display: table-cell;
+  width: 300px;
+  background:#f6f8f9;
+  text-align: right;
+}
+#btn1 {
+  margin-left:100px;
+}
+li {
+ display:inline-block;
+ padding: 5px;
+
+}
+#btn  {
+ text-align:center;z
+ background: rgba(0, 0, 0, 0) url("/img/Add_task_n.png") no-repeat center center;
+}
+#btn:hover {
+ text-align:center;
+ background: rgba(0, 0, 0, 0) url("/img/Add_task_h.png") no-repeat center center;
+}
+#btn:active
+{
+  text-align:center;
+  background: rgba(0, 0, 0, 0) url("/img/Add_task_p.png") no-repeat center center;
+}
+#background {
+	text-align:center;
+	 border-left:#eaeaea 3px solid;
+	 border-right:#eaeaea 3px solid;
+	 border-bottom:#eaeaea 3px solid;
+}
+#top {
+    height:40px;
+}
+#middle{
+    height:20px;
+}
+#content{
+	color:#969696;
+	font-size:14px;
+}
+#bottom {
+    height:40px;
+    border-bottom:#earara 3px solid;
+}

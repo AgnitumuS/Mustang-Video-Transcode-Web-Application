@@ -39,13 +39,11 @@ shouldComponentUpdate(nextProps,nextState){
 }
 
  openModal() {
-  //  this.post_api(this.props.Job_Id_no);
   this.setState({modalIsOpen: true});
 
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#f00';
   }
 

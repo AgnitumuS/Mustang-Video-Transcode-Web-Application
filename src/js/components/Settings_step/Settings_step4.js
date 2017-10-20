@@ -4,6 +4,9 @@ import JobList from './Settings_step4_list'
 import {taskConfig} from '../../config'
 import '../../css/table.css';
 import '../../css/icon.css';
+
+import '../../css/settings.css';
+
 export default class Settings_step4 extends React.Component {
   constructor(props){
     super(props);
@@ -62,7 +65,7 @@ export default class Settings_step4 extends React.Component {
       AudioSettings:audioMsg,
       contentData:dataConfig.outputs,
       fileUse:fileUse,
-      titleDescription:"Overview of the task to start transcoding job."
+      titleDescription:"Task Overview."
     };
   }
 
@@ -81,6 +84,7 @@ export default class Settings_step4 extends React.Component {
 
   }
   render() {
+	const marginBrown="12px";  
     var title = ["Resolution (px)","FrameRate (fps)"];
     if(!this.state.FrameRate_QP_value){
       title.push("QP Value");
@@ -89,7 +93,7 @@ export default class Settings_step4 extends React.Component {
       title.push("BitRate (Mbps)");
     }
     var TitleList = [];
-    TitleList = title.map((x,i)=><th id="css_th2" key={i}>{x}</th>);
+    TitleList = title.map((x,i)=><th style={{textAlign:'left',paddingLeft: marginBrown}} id="css_th2" key={i}>{x}</th>);
     var Process_Job_List1=[];
     const contentData = this.state.contentData;
     Process_Job_List1 = contentData.map((x, i) => <JobList key={i} obj={x} FrameRate_QP_value={this.state.FrameRate_QP_value}/>);
@@ -106,23 +110,25 @@ export default class Settings_step4 extends React.Component {
     const marginYellow="10px";
     const marginPink="8px";
     const marginOrange="35px";
-
+    const margin2Orange="70px";
+    const marginPush="45px";
+   
     return (
       <div>
         <div style={{marginTop:marginBlue}}></div>
-        <div style={{marginLeft:marginOrange}}>{this.state.titleDescription}</div>
+        <div className="settings_step4_title" style={{marginLeft:margin2Orange}}>{this.state.titleDescription}</div>
         <div style={{marginTop:marginBlue}}></div>
         <div className="row">
           <div className="col-sm-12">
             <div className="col-sm-6">
-              <div style={{float:"left",width:"115px",marginLeft:marginOrange}}>Task:</div>
+              <div className="settings_step4_apart" style={{float:"left",width:"115px",marginLeft:58}}>Task:</div>
               <div style={{float:"left",marginLeft:marginYellow}} className = {this.state.iTask}></div>
-              <div style={{float:"left",marginLeft:marginPink}}>{this.state.Task}</div>
+              <div style={{float:"left",marginLeft:marginPink}} className = "settings_step4_bpart">{this.state.Task}</div>
               <div style={{clear:"both"}}></div>
             </div>
             <div className="col-sm-6">
-              <div style={{float:"left",width:"115px",marginLeft:marginBlue}}>Video Settings:</div>
-              <div style={{float:"left",marginLeft:marginYellow}}>{this.state.VideoSettings}</div>
+              <div className="settings_step4_apart" style={{float:"left",width:"115px",marginLeft:marginBlue}}>Video Settings:</div>
+              <div className="settings_step4_bpart" style={{float:"left",marginLeft:marginYellow}}>{this.state.VideoSettings}</div>
               <div style={{clear:"both"}}></div>
             </div>
           </div>
@@ -130,20 +136,21 @@ export default class Settings_step4 extends React.Component {
         <div className="row">
           <div className="col-sm-12">
             <div className="col-sm-6">
-              <div style={{float:"left",width:"115px",marginLeft:marginOrange}}>{typeTitle}</div>
-              <div style={{float:"left",marginLeft:marginYellow}}>{typeInfo}</div>
+              <div className="settings_step4_apart" style={{float:"left",width:"115px",marginLeft:58,marginTop: 10}}>{typeTitle}</div>
+              <div className="settings_step4_bpart" style={{float:"left",marginLeft:marginYellow,marginTop: 10}}>{typeInfo}</div>
               <div style={{clear:"both"}}></div>
             </div>
             <div className="col-sm-6">
-              <div style={{float:"left",width:"115px",marginLeft:marginBlue}}>Audio Settings:</div>
-              <div style={{float:"left",marginLeft:marginYellow}}>{this.state.AudioSettings}</div>
+              <div className="settings_step4_apart" style={{float:"left",width:"115px",marginLeft:marginBlue,marginTop: 10}}>Audio Settings:</div>
+              <div className="settings_step4_bpart" style={{float:"left",marginLeft:marginYellow,marginTop: 10}}>{this.state.AudioSettings}</div>
               <div style={{clear:"both"}}></div>
             </div>
           </div>
         </div>
         <div style={{marginTop:marginBlue}}></div>
-        <div style={{height:"32px",fontSize:"14px",color:"#000000",backgroundColor:"#f6f8f9",marginLeft:marginYellow}}>Output</div>
-        <table id="css_table" class="table-striped table-hover table-users table-bordered ">
+        <div style={{backgroundColor:'#f6f8f9',float: 'left', width:"12px",height:"32px",marginLeft:margin2Orange}}></div>
+        <div className="settings_step4_apart" style={{height:"32px",fontSize:"14px",color:"#000000",backgroundColor:"#f6f8f9",marginLeft:margin2Orange,width:'740px'}}>Output</div>
+        <table style={{width:'740px',marginLeft:margin2Orange,marginRight:marginOrange}} id="css_table" class="table-striped table-hover table-users table-bordered settings_step4_apart">
          <thead>
            <tr>
              {TitleList}

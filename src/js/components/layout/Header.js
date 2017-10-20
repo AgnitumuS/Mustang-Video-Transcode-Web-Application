@@ -1,32 +1,44 @@
 import React from "react";
 import '../../css/style.css';
 
+import Abourus from "../Aboutus";
+
 export default class Header extends React.Component {
-	/*要傳值需要用到這*/
 	constructor(props) {
 		    super(props)
 		    this.state = {
 		    };
+		   this.open_about = this.open_about.bind(this); 
 		  }
-    /*傳值需要用到這*/
+	
+	open_about() {
+		this.refs.about.openModal();
+	}
+	componentWillMount(){
+        
+    }
+	
+	
   render() {
 		const containerStyle = {
-      marginTop: "15px"
+      height:"52px"
     };
     return (
 
         <div className="navBar" style={containerStyle} >
-
+						<div style={{height:"8px",width:"100%",background:"linear-gradient(to right, #1d6fde , #05b8e5)"}}>
+						</div>
             <div className="navTitle">
-              {/*<img src='../../img/open_n.png'/>*/}
+              <div className="f_appIcon"/>
               <span className="f_bold">Mustang-</span>
 							<span className="f_light">200</span>
             </div>
 
             <div className="navBox">
-              <img src='../../img/about_i.png'/>
+            {/*<div className="i_help" />*/}
+            <div className="i_about" onClick={this.open_about}/>
             </div>
-
+            <Abourus ref="about" dateSelect={this.dateSelect}/> 
         </div>
 
     );

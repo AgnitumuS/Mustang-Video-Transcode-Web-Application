@@ -1,4 +1,4 @@
-import { cardInfo,appConfig,routeResp } from '../config';
+import { appConfig,routeResp } from '../config';
 import Request from 'superagent';
 
 export const baseTrans = function(body,type,callback){
@@ -20,31 +20,10 @@ export const baseTrans = function(body,type,callback){
        resp[routeResp.Data]=err;
        callback(resp);
      } else {
-      //  console.log("baseTrans resp " + JSON.stringify(res.body));
        var resp = {};
        resp[routeResp.Result]=routeResp.SuccessResult;
        resp[routeResp.Data]=res.body;
        callback(resp);
      }
-     });
-}
-
-export const stopJob = function(jobId,callback){
-  var url = appConfig.HOST_API.TerminateJob.url;
-  var body= { "jobId": jobId};
-  Request.post(url).set('Content-Type', 'application/json')
-  .send(JSON.stringify(body)).end(function(err, res){
-    if (err || !res.ok) {
-      var resp = {};
-      resp[routeResp.Result]=routeResp.FailResult;
-      resp[routeResp.Data]=err;
-      callback(resp);
-    } else {
-      //  console.log("baseTrans resp " + JSON.stringify(res.body));
-       var resp = {};
-       resp[routeResp.Result]=routeResp.SuccessResult;
-       resp[routeResp.Data]=res.body;
-       callback(resp);
-    }
-  });
+   });
 }

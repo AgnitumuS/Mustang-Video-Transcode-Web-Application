@@ -3,11 +3,13 @@ import Tabs from "./Tabs";
 import _        from 'lodash';
 import Modal from 'react-modal';
 import 'react-select/dist/react-select.css';
-import '../components/layout/table.css';
+import '../css/table.css';
 import {Settings_step1,Settings_step2,Settings_step3,Settings_step4} from "../components/Settings_step";
 import {routeResp,cardInfo} from '../config';
 import {baseTrans} from '../api';
 import '../css/normal.css';
+import '../css/settings.css';
+import '../css/icon.css';
 
 const tabColor=["#1d6fde","#eee","#bbb","#fff"];
 const tabUseColor=["#eaeaea","#dafbff","#d5d5d5"];//normal/hover/select
@@ -74,11 +76,24 @@ const fileInfo={
 export default class Settings extends React.Component {
   constructor(props) {
      super(props);
-     var cpuId = cardInfo.cards[this.props.cardSelect].cpuinfo1.id;
-     if(this.props.cpuSelect == 2){
-       cpuId=cardInfo.cards[this.props.cardSelect].cpuinfo2.id;
+
+     var selectedCPU, selctedCard;
+
+     if(this.props.cpu != undefined) //For Overview ProgressBar task
+     {
+        selectedCPU = this.props.cpu;
+        selctedCard = this.props.card;
      }
-     var cardId=cardInfo.cards[this.props.cardSelect].id;
+     else{
+        selectedCPU = this.props.cpuSelect;
+        selctedCard = this.props.cardSelect;
+     }
+
+     var cpuId = cardInfo.cards[selctedCard].cpuinfo1.id;
+     if(selectedCPU == 2){
+       cpuId=cardInfo.cards[selctedCard].cpuinfo2.id;
+     }
+     var cardId= cardInfo.cards[selctedCard].id;
 
 
       var stepUseImg=new Array(4);
@@ -105,8 +120,8 @@ export default class Settings extends React.Component {
      this.state = {
         modalIsOpen: false,
         mContentId:1,
-        cardSelect:this.props.cardSelect,
-        cpuSelect:this.props.cpuSelect,
+        cardSelect: selctedCard,
+        cpuSelect: selectedCPU,
         cardId:cardId,
         cpuId:cpuId,
         mContent:null,
@@ -154,7 +169,10 @@ export default class Settings extends React.Component {
   afterOpenModal() {
   }
   closeModal() {
-    var strMsg="Are you sure to exit!!";
+	  this.setState({
+	        modalIsOpen: false
+	      }); 
+   /* var strMsg="Are you sure to exit!!";
 
     if(confirm(strMsg))
     {
@@ -167,7 +185,7 @@ export default class Settings extends React.Component {
     else//Cancel
     {
 
-    }
+    } */
   }
   initData(){
     this.setState({
@@ -249,6 +267,7 @@ export default class Settings extends React.Component {
       bodyConfig:tem
     })
   }
+  
 
 
 
@@ -262,7 +281,8 @@ export default class Settings extends React.Component {
                       mType={this.state.mType}
                       setDataConfig={this.setBody_input}
                       getDataConfig={this.getDataConfig}
-                      setcheckData={this.setcheckData} />;
+                      setcheckData={this.setcheckData}
+          			  />;
            break;
          case 2:
           mContent=<Settings_step2
@@ -378,8 +398,6 @@ export default class Settings extends React.Component {
     var data = resp[routeResp.Data];
   }
   render() {
-    const add_task_24 = '../../../img/add task_24.png';
-
     const mContent=this.state.mContent;
     const mContentId=this.state.mContentId;
     var strTitle="Add Task on " + this.state.cpuId;
@@ -388,11 +406,11 @@ export default class Settings extends React.Component {
     const marginPink="12px";
     const marginOrange="35px"
     var tagTitleList=[];
-    var tagTitleListStr=["Select a Task","Transcode Settings","Output Settings","Summary"];
+    var tagTitleListStr=["Select a Task","Output Format Setting","Output Quality Setting","Summary"];
     tagTitleList=tagTitleListStr.map((x,i)=>
-    <div key={"tag"+i} style={{float:"left",height:"52px",backgroundColor:this.state.tabBG[i]}}>
-      <div id={"tab"+i} style={{float:"left",height:"52px",backgroundColor:this.state.tabBG[i],lineHeight:"52px",verticalAlign:"middle",textAlign:"center"}}><img src={ this.state.stepUseImg[i] }/></div>
-      <div style={{float:"left",height:"52px", marginLeft:marginYellow,backgroundColor:this.state.tabBG[i],lineHeight:"52px",verticalAlign:"middle",textAlign:"center"}}><text>{x}</text></div>
+      <div key={"tag"+i} style={{float:"left",height:"52px",backgroundColor:this.state.tabBG[i]}}>
+      <div id={"tab"+i} style={{float:"left",height:"52px",backgroundColor:this.state.tabBG[i],lineHeight:"52px",verticalAlign:"middle",textAlign:"center",marginLeft:(i==0)?marginOrange:"0px"}}><img src={ this.state.stepUseImg[i] }/></div>
+      <div style={{float:"left",height:"52px", marginLeft:marginYellow,backgroundColor:this.state.tabBG[i],lineHeight:"52px",verticalAlign:"middle",textAlign:"center",fontFamily:"Roboto-R",fontSize:"13px",color:"#131313"}}>{x}</div>
       <div style={{float:"left",width:{marginPink},height:"52px",backgroundColor:this.state.tabBG[i]}}></div>
       <div id={"tab"+i} style={{float:"left",width:"14px",backgroundColor:this.state.tabBG2[i]}}><img src={ this.state.stepArrUseImg[i] } />
       </div>
@@ -401,9 +419,6 @@ export default class Settings extends React.Component {
 
     return (
       <div>
-        <div>
-          <button class="button_normal  button_yes" onClick={this.openModal}>+ Add Task</button>
-        </div>
         <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
@@ -412,28 +427,33 @@ export default class Settings extends React.Component {
             contentLabel="Example Modal"
             shouldCloseOnOverlayClick={false}
           >
-          <div class="row" style={Styles.divcontent}>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12" style={Styles.div1}>
-                    <h4 style={Styles.fontTitle}><img src={ add_task_24 } width="30px" height="30px"/>{strTitle}</h4>
+          <div style={Styles.divcontent}>
+            <div>
+                <div style={Styles.div1}>
+                  <div style={{display: "table-cell",verticalAlign: "middle",lineHeight:"52px",paddingLeft:marginOrange}}>
+                    <div className="i_30x30_area i_SettingPageTitle"></div>
+                    <span style={{marginLeft:marginYellow, verticalAlign:"middle",fontSize:"20px",fontFamily:"Roboto-M",color:"#ffffff"}}>{strTitle}</span>
+                  </div>
                 </div>
               </div>
-              <div class="row" style={{backgroundColor:tabUseColor[0],verticalAlign:"middle",textAlign:"center"}}>
-                    {tagTitleList}
+              <div style={{backgroundColor:tabUseColor[0],verticalAlign:"middle",textAlign:"center"}}>
+                   {/*<div style={{backgroundColor:'#FFFFFF',float: 'left', width: "35",height:"52"}}></div>*/}
+                   <div className="settings_step">{tagTitleList}</div>
+                   {/*<div style={{backgroundColor:'#FFFFFF',float: 'right', width: "35",height:"52"}}></div>*/}
                     <div style={{clear:"both"}}></div>
               </div>
-              <div class="row" style={Styles.div3}>
+              <div style={Styles.div3}>
                 {mContent}
               </div>
-              <div class="row" style={Styles.div4}>
+              <div style={Styles.div4}>
                 <div style={{marginBottom:"24px"}}>
                   <div style={{float:"left",marginLeft:marginOrange,marginRight:"24px"}}>
                     <button class="button_commit button_no" onClick={()=> this.closeModal(5)}>Cancel</button>
                   </div>
-                  <div style={{float:"right",marginLeft:"8px",marginRight:"24px"}}>
+                  <div style={{float:"right",marginLeft:"8px",marginRight:"35px"}}>
                     <button style={{display:(this.state.mContentId!=4)?"inline":"none"}} disabled={!this.state.checkData} class="button_commit button_yes" onClick={()=>this.changeContent(this.state.mContentId+1)}>Next</button>
                   </div>
-                  <div style={{float:"right",marginLeft:"8px",marginRight:"24px"}}>
+                  <div style={{float:"right",marginLeft:"8px",marginRight:"35px"}}>
                     <button style={{display:(this.state.mContentId==4)?"inline":"none"}} disabled={!this.state.checkData} class="button_commit button_yes" onClick={()=>this.postapi(this.state.bodyConfig)}>Start</button>
                   </div>
                   <div style={{float:"right"}}>
@@ -461,7 +481,8 @@ const resetModalStyle = (() => {
     left              : 0,
     right             : 0,
     bottom            : 0,
-    backgroundColor   : 'rgba(0, 0, 0, 0.5)'
+    backgroundColor   : 'rgba(0, 0, 0, 0.5)',
+    zIndex: 100
   }
   const content= {
         border: '0',
@@ -469,14 +490,13 @@ const resetModalStyle = (() => {
         bottom: 'auto',
         minHeight: '10rem',
         left: '50%',
-        padding: '0rem',
+        padding: '0',
         overflow: 'false',
         position: 'fixed',
         right: 'auto',
         top: '50%',
         transform: 'translate(-50%,-50%)',
-        minWidth: '70rem',
-        Width:'900px'
+        minWidth: "900px"
       }
 
   return {overlay, content}
@@ -484,25 +504,24 @@ const resetModalStyle = (() => {
 
 const Styles={
   divcontent:{
-    paddingLeft:'15px',
-    paddingRight:'15px',
-    width             : "900px"
+    height             : "100%",
+    width             : "100%"
   },
   div1:{
     backgroundColor        : tabColor[0],
-    height            : "52px",
-    width             : "900px"
+    minHeight            : "52px",
+    width             : "100%"
   },
   div3:{
     padding:"10px",
     backgroundColor        : tabColor[3],
-    height            : "416px",
-    width             : "900px"
+    minHeight            : "416px",
+    width             : "100%"
   },
   div4:{
     backgroundColor        : tabColor[3],
-    height            : "52px",
-    width             : "900px"
+    minHeight            : "52px",
+    width             : "100%"
   },
   fontTitle:{
     color: tabColor[3]

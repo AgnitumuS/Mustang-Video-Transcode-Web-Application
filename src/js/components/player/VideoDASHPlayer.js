@@ -21,8 +21,6 @@ class VideoDASHPlayer extends Component{
     }
 
     initPlayer(){
-      console.log("initPlayer~~~~");
-
       var videoElement = this.refs.player;
       var self = this;
       this.player = videojs(videoElement, { "techOrder": ["hls","flash","html5"] });
@@ -63,7 +61,6 @@ class VideoDASHPlayer extends Component{
 
     }
     reloadPlayer(){
-        console.log("reloadPlayer~~~~");
         if(this.player){
             // this.player.reset();
             this.initPlayer();
@@ -74,7 +71,6 @@ class VideoDASHPlayer extends Component{
         this.initPlayer();
     }
     componentWillUnmount() {
-      console.log("DASHvideo.destroy()");
       this.player.dispose();
       this.player=null;
 

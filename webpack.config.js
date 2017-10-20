@@ -1,6 +1,12 @@
 var webpack = require('webpack');
 var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var path = require('path');
+// Add two for version
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const packageInfo = require('./package.json');
+
+const releasePath = __dirname + '/output/release/';
+
 
 module.exports = {
   context: path.join(__dirname, "src"),
@@ -59,7 +65,7 @@ module.exports = {
     }
   },
   output: {
-      path: path.join(__dirname, "public"),
+      path: path.join.apply(__dirname, ["public"]),
       filename: "dist/js/[name].js",
       libraryTarget: "umd",
       umdNamedDefine: true,
@@ -76,6 +82,10 @@ module.exports = {
     }
   },
   plugins: [
+      new HtmlWebpackPlugin({
+  			title: packageInfo.name+' - ver ' + packageInfo.version+'-beta',
+        template: 'my-index.ejs'
+  		}),
       new webpack.DefinePlugin({
            'process.env': {
                'NODE_ENV': JSON.stringify('development')

@@ -122,21 +122,32 @@
 .i_action_delete
 {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0) url("/img/Del_n.png") no-repeat center center;
+    background: rgba(0, 0, 0, 0) url("/img/delete_n.png") no-repeat center center;
 }
 .i_action_delete:hover
 {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0) url("/img/Del_h.png") no-repeat center center;
+    background: rgba(0, 0, 0, 0) url("/img/delete_h.png") no-repeat center center;
 }
 .i_action_delete:disabled
 {
     cursor: default;
-    background: rgba(0, 0, 0, 0) url("/img/Del_d.png") no-repeat center center;
+    background: rgba(0, 0, 0, 0) url("/img/delete_d.png") no-repeat center center;
 }
-.i_action_delete:focus
+.i_aciton_clear
 {
-   border: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/clear_n.png") no-repeat center center;
+}
+.i_aciton_clear:hover
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/clear_h.png") no-repeat center center;
+}
+.i_aciton_clear:disabled
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/clear_d.png") no-repeat center center;
 }
 .i_action_preview
 {
@@ -153,38 +164,74 @@
     cursor: default;
     background: rgba(0, 0, 0, 0) url("/img/preview_d.png") no-repeat center center;
 }
-
-.i_button_area
+.i_action_open
 {
-    display: inline-block;
-    height: 15px;
-    margin-right: 0px;
-    vertical-align: middle;
-    width: 15px;
-    padding: 0 0 0 0;
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border:none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/open_n.png") no-repeat center center;
 }
-.i_button_area:focus
+.i_action_open:hover
 {
-   outline:0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/open_h.png") no-repeat center center;
+}
+.i_action_open:disabled
+{
+    cursor: default;
+    background: rgba(0, 0, 0, 0) url("/img/open_d.png") no-repeat center center;
 }
 .i_button_del
 {
-    cursor: default;
-    background: rgba(0, 0, 0, 0) url("/img/Del_n.png") no-repeat center center;
+    cursor: pointer;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/Del_n.png") no-repeat 22px center;
 }
 .i_button_del:hover
 {
-    cursor: default;
-    background: rgba(0, 0, 0, 0) url("/img/Del_h.png") no-repeat center center;
+    cursor: pointer;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/Del_h.png") no-repeat 22px center;
 }
 .i_button_del:disabled
 {
     cursor: default;
-    background: rgba(0, 0, 0, 0) url("/img/Del_d.png") no-repeat center center;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/Del_d.png") no-repeat 22px center;
+}
+.i_button_add
+{
+    cursor: pointer;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/btn_add_12.png") no-repeat 22px center;
+}
+.i_button_add:hover
+{
+    cursor: pointer;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/btn_add_12_h.png") no-repeat 22px center;
+}
+.i_button_add:disabled
+{
+    cursor: default;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/btn_add_12_d.png") no-repeat 22px center;
+}
+.i_button_clear
+{
+    cursor: pointer;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/btn_clear_n.png") no-repeat 22px center;
+}
+.i_button_clear:hover
+{
+    cursor: pointer;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/btn_clear_h.png") no-repeat 22px center;
+}
+.i_button_clear:disabled
+{
+    cursor: default;
+    padding: 0 44px;
+    background: rgba(0, 0, 0, 0) url("/img/btn_clear_d.png") no-repeat 22px center;
 }
 
 .i_area_24x24
@@ -222,7 +269,7 @@
 .i_area_folderopen:active
 {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0) url("/img/folderopen_a.png") no-repeat center center;
+    background: rgba(0, 0, 0, 0) url("/img/folderopen_a.png") no-repeat !important;
 }
 
 .i_area_17x16
@@ -282,4 +329,190 @@
 .i_area_btn_copy:disabled
 {
     background: rgba(0, 0, 0, 0) url("/img/btn_copy_d.png") no-repeat scroll center center;
+}
+
+.i_btn_aciton_edit_area
+{
+    display: inline-block;
+    height: 32px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 32px;
+    padding: 0 0 0 0;
+    margin-left: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+
+.i_btn_aciton_edit
+{
+    height: 20px;
+    vertical-align: top;
+    width: 20px;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border:none;
+	cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/btn_aciton_edit_normal.png") no-repeat scroll center center;
+}
+.i_btn_aciton_edit:hover
+{
+    height: 20px;
+    vertical-align: top;
+    width: 20px;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border:none;
+	cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/btn_aciton_edit_hover.png") no-repeat scroll center center;
+}
+.i_btn_aciton_edit:disabled
+{
+    height: 20px;
+    vertical-align: top;
+    width: 20px;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border:none;
+	cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/btn_aciton_edit_disable.png") no-repeat scroll center center;
+}
+
+.i_btn_base
+{
+    height: 16px;
+    width: 16px;
+    vertical-align: bottom;
+    padding: 0 0 0 0;
+    margin: 3px 0 5px 0;
+    border:none;
+    cursor: pointer;
+    padding-left: 4px;
+    float: right;
+}
+
+.i_btn_ok
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/name_ok_normal.png") no-repeat scroll center center;
+}
+.i_btn_ok:hover
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/name_ok_hover.png") no-repeat scroll center center;
+}
+.i_btn_ok:active
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/name_ok_active.png") no-repeat scroll center center;
+}
+
+.i_btn_cancel
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/name_cancel_normal.png") no-repeat scroll center center;
+}
+.i_btn_cancel:hover
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/name_cancel_hover.png") no-repeat scroll center center;
+}
+.i_btn_cancel:active
+{
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0) url("/img/name_cancel_active.png") no-repeat scroll center center;
+}
+
+
+.i_btn_aciton_search_area
+{
+    display: inline-block;
+    height: 24px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 24px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_btn_aciton_search_area:focus
+{
+   outline:0;
+}
+
+.i_btn_aciton_search
+{
+	cursor: pointer;
+  background: rgba(0, 0, 0, 0) url("/img/advanced_search_normal.png") no-repeat center center;
+}
+.i_btn_aciton_search:active
+{
+	cursor: pointer;
+  background: rgba(0, 0, 0, 0) url("/img/advanced_search_active.png") no-repeat !important;;
+}
+.i_btn_aciton_search:hover
+{
+	cursor: pointer;
+  background: rgba(0, 0, 0, 0) url("/img/advanced_search_hover.png") no-repeat center center;
+}
+
+.i_about_area
+{
+    display: inline-block;
+    height: 80px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width: 80px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+.i_about_mvt
+{
+  background: rgba(0, 0, 0, 0)  url("/img/App Icon/mvt_80.png") no-repeat center center;
+}
+
+.i_about_ieiqnap
+{
+  background: rgba(0, 0, 0, 0)  url("/img/About icon/IEI_QNAP.png") no-repeat center center;
+}
+
+.i_about_iei
+{
+  background: rgba(0, 0, 0, 0)  url("/img/About icon/IEI.png") no-repeat center center;
+}
+
+.i_about_qnap
+{
+  background: rgba(0, 0, 0, 0)  url("/img/About icon/QNAP.png") no-repeat center center;
+}
+
+.i_cardProcessEmpty{
+  background: rgba(0, 0, 0, 0)  url("/img/Add_task_n.png") no-repeat center center;
+}
+.i_historyProcessEmpty{
+  background: rgba(0, 0, 0, 0)  url("/img/filter_empty.png") no-repeat center center;
+}
+
+.i_30x30_area
+{
+    display: inline-block;
+    height: 30px;
+    margin-right: 0px;
+    vertical-align: middle;
+    width:  30px;
+    padding: 0 0 0 0;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border:none;
+}
+
+.i_SettingPageTitle{
+  background: rgba(0, 0, 0, 0)  url("/img/add task_24.png") no-repeat center center;
 }

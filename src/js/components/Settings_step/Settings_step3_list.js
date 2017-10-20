@@ -6,6 +6,8 @@ import {taskConfig} from '../../config'
 import ReactDOM from 'react-dom';
 import '../../css/icon.css';
 
+import '../../css/settings.css';
+
 export default class Settings_step3_list extends React.Component {
   constructor(props) {
    super(props);
@@ -16,7 +18,8 @@ export default class Settings_step3_list extends React.Component {
      qp:_.find(props.qpRange, {label:this.props.obj.vquality}),
      qpDisable:this.props.obj.bitrateenable,
      bitrate:_.find(taskConfig.Video_BitRate, {Video_BitRate_value:parseInt(tmp)}),
-     index:this.props.obj.index
+     index:this.props.obj.index,
+     checkStatus: this.props.checkStatus
    };
     this.resolution_onChange = this.resolution_onChange.bind(this);
     this.framerate_onChange = this.framerate_onChange.bind(this);
@@ -38,11 +41,16 @@ export default class Settings_step3_list extends React.Component {
 	  this.setState({qp : val})
     this.props.status_onChange(this.props.index,"vquality",_.result(val,'label'));
 	  };
-  bitrate_onChange(val) {
-    this.setState({vbitrate : val})
+  bitrate_onChange(val) { 
+    this.setState({bitrate : val})
     var tmp = _.result(val,'Video_BitRate_value');
     this.props.status_onChange(this.props.index,"vbitrate",parseInt(tmp));
     };
+
+  onCheckkChange(index,event)
+  {
+    this.props.remove_check(index,event.target.checked);
+  }
 
   render() {
     //-- Select
@@ -63,12 +71,12 @@ export default class Settings_step3_list extends React.Component {
             value={this.state.bitrate}
             clearable={clearable}/></td>);
     }
-    //--checkbox
-    const checkboxUseEnable=false;
+
+    var checkboxUseEnable = this.state.checkStatus;
     return (
       <tr>
-        <td><input disabled={!checkboxUseEnable} type="checkbox" /></td>
-        <td><Select className="col-sm-12"
+        <td style={{textAlign: 'center'}}><input name={this.state.index} type="checkbox" style={{ marginLeft:"10px", marginRight:"10px"}} onChange={(x)=>this.onCheckkChange(this.props.index,x)} checked={this.props.checkStatus}/></td>
+        <td style={{height:40}}><Select className="col-sm-12"
         	  ref={this.state.index}
               onChange={this.resolution_onChange}
               options={taskConfig.Video_Resolution}

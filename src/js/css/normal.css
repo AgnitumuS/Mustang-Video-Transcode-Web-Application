@@ -60,3 +60,43 @@
   color: #aeaeae;
   cursor: default;
 }
+
+.i_baseStyle
+{
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+  padding: 0 0 0 0;    /*margin-left: 0 5px 0 10px;*/
+}
+
+.i_info1
+{
+  background: rgba(0, 0, 0, 0) url("/img/system icon/info.png") no-repeat scroll center center;
+}
+.i_warning
+{
+  background: rgba(0, 0, 0, 0) url("/img/system icon/warning.png") no-repeat scroll center center;
+}
+.i_help
+{
+  background: rgba(0, 0, 0, 0) url("/img/system icon/help.png") no-repeat scroll center center;
+}
+.i_error
+{
+  background: rgba(0, 0, 0, 0) url("/img/system icon/error.png") no-repeat scroll center center;
+}
+.i_close{
+  width: 11px;
+  height: 11px;
+  cursor: pointer;
+  position: absolute;
+  right: 11px;
+  top: 11px;
+  padding: 10 10 0 0;
+  background: rgba(0, 0, 0, 0) url("/img/function_info_close.png") no-repeat scroll 0 center;
+}
+
+.messageBoxContainer{
+  margin: 24px 24px 0 24px;
+}

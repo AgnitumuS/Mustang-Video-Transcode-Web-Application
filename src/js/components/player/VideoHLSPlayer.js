@@ -18,8 +18,6 @@ class VideoHLSPlayer extends Component{
     }
 
     initPlayer(){
-      console.log("initPlayer~~~~");
-
       var videoElement = this.refs.player;
       var self = this;
       this.player = videojs(videoElement, { "techOrder": ["hls","flash","html5"] });

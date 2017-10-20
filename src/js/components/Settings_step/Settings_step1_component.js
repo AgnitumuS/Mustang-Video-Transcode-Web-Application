@@ -6,6 +6,8 @@ import {taskConfig,routeResp} from '../../config';
 import Modal from 'react-modal';
 import '../../css/normal.css';
 import '../../css/icon.css';
+import '../../css/settings.css';
+
 export default class Settings_step1_component extends React.Component {
 
   constructor(props){
@@ -19,11 +21,11 @@ export default class Settings_step1_component extends React.Component {
     	fsize:"",
     	Duration:"",
     	Resolution:"",
-    	value:null,
       files:[],
       folders:[],
       mDirPath:"",
-      mFileName:""
+      mFileName:"",
+      modalIsOpen:false
     })
     this.getFileList_callback=this.getFileList_callback.bind(this);
     this.getFileInfo_callback=this.getFileInfo_callback.bind(this);
@@ -88,21 +90,33 @@ export default class Settings_step1_component extends React.Component {
     }
     getFileInfo_callback(resp){
       if(resp[routeResp.Result] == routeResp.FailResult){
-        console.log("getFileInfo_callback fail");
+
+        this.setState({
+            video:'',
+            bitrate:'',
+            audio:'',
+            fps:'',
+            audiorate:'',
+            fsize:'',
+            Duration:'',
+            Resolution:''
+          });
+
+        this.props.callbacknext();
+
         return;
       }
       var data = resp[routeResp.Data];
       this.setState({
-        video:data.video,
-        bitrate:data.bitrate,
-        audio:data.audio,
-        fps:data.fps,
-        audiorate:data.audiorate,
-        fsize:data.fsize,
-        Duration:data.Duration,
-        Resolution:data.Resolution,
-      });
-
+          video:data.video,
+          bitrate:data.bitrate,
+          audio:data.audio,
+          fps:data.fps,
+          audiorate:data.audiorate,
+          fsize:data.fsize,
+          Duration:data.Duration,
+          Resolution:data.Resolution,
+        });
       var wholepath=this.state.mDirPath+"/"+this.state.mFileName;
       if(this.state.mDirPath.length > 1){
         wholepath=this.state.mDirPath+"/"+this.state.mFileName;
@@ -113,7 +127,6 @@ export default class Settings_step1_component extends React.Component {
       else{
         return;
       }
-
       this.props.callbackParent(wholepath,data);
     }
 
@@ -162,7 +175,6 @@ export default class Settings_step1_component extends React.Component {
 
   getFileInfo_onlyinfo_callback(resp){
     if(resp[routeResp.Result] == routeResp.FailResult){
-      console.log("getFileInfo_callback fail");
       this.setState({
         mDirPath:"",
         mFileName:""
@@ -182,7 +194,7 @@ export default class Settings_step1_component extends React.Component {
     });
   }
 
-  /* 加的中止點 */
+
   render() {
 	  const files = this.state.files;
 	  const folders = this.state.folders;
@@ -203,7 +215,7 @@ export default class Settings_step1_component extends React.Component {
       wholepathtmp="Path";
     }
     var wholepath = wholepathtmp;
-    if(wholepath.length > 55){
+    if(wholepath.length > 25){
       pathOverLength = true;
       wholepath="FILEPATHFORFLOWSHOW "+wholepathtmp;
     }
@@ -213,11 +225,13 @@ export default class Settings_step1_component extends React.Component {
     const marginYellow="10px";
     const marginGreenLight="15px";
     const marginPurple="30px";
+    const marginOrange="35px";
+    const margin2Orange="70px";
 
     return (
       <div >
-        <div style={{float:"left",width:"115px", marginRight:marginYellow}}>Select File:</div>
-      <div style={{float:"left",width:"400px",borderStyle:'solid',marginBottom: '1em',overflow:'hidden',textOverflow:"ellipsis",display:'inline',direction:(pathOverLength)?'rtl':'ltr',whiteSpace: 'nowrap'}}><text>{wholepath}</text></div>
+        <div style={{float:"left",width:"115px", marginRight:marginYellow,marginLeft:margin2Orange}}>Select File:</div>
+        <div style={{float:"left",height:"24px",width:"200px",borderStyle:'solid',marginBottom: '1em',overflow:'hidden',textOverflow:"ellipsis",display:'inline',direction:(pathOverLength)?'rtl':'ltr',whiteSpace: 'nowrap'}}><text>{wholepath}</text></div>
         <div style={{float:"left",marginLeft:marginYellow}}><button className="i_area_24x24 i_area_folderopen" onClick={this.openModal} /></div>
         <div style={{clear:"both"}}></div>
         <div style={{marginTop:marginBlue}}></div>
@@ -241,7 +255,7 @@ export default class Settings_step1_component extends React.Component {
           contentLabel="Example Modal"
           shouldCloseOnOverlayClick={false}
         >
-          <div class="row" style={Styles.divcontent}>
+          <div style={Styles.divcontent}>
             <div class="row">
               <div class="col-xs-1 col-sm-1" style={Styles.div1}></div>
               <div class="col-xs-10 col-sm-10" style={Styles.div2}>
@@ -258,7 +272,7 @@ export default class Settings_step1_component extends React.Component {
                 </div>
               </div>
             </div>
-            <div style={{marginLeft:"35px",marginBottom:"24px",marginTop:"24px"}}>
+            <div style={{position:"absolute",bottom:"0px",marginLeft:"35px",marginBottom:"24px",marginTop:"24px"}}>
               <button class="button_commit button_no" onClick={()=> this.closeModal()}>Cancel</button>
             </div>
           </div>
@@ -279,7 +293,8 @@ const resetModalStyle = (() => {
 	    left              : 0,
 	    right             : 0,
 	    bottom            : 0,
-	    backgroundColor   : 'rgba(0, 0, 0, 0.5)'
+	    backgroundColor   : 'rgba(0, 0, 0, 0.5)',
+      zIndex            : '200'
 	  }
 	  const content= {
 	        border: '0',
