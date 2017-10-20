@@ -59,7 +59,7 @@ This page displays the network information regarding how the cards are connected
 1. The CPU, MAC and IP Addresses
 2. Port Information for QTS and Protocols HTTP,RTMP,ICECAST  
 
-![](https://github.com/IEI-dev/Mustang-Video-Transcode-Web-Application/blob/master/src/readme_img/network.jpg)
+![](https://raw.githubusercontent.com/IEI-dev/Mustang-Video-Transcode-Web-Application/master/src/readme_img/network.jpg)
 
 ### Cards
  
