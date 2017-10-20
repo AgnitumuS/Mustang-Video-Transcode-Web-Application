@@ -33,10 +33,11 @@ Install Mustang-200 Host Server SDK
 	c. open local web page: url is localhost:8080
 
 ##### 5. Run in host sever
-   a. set file: "/src/js/config/appConfig.js" parameter: "const DebugUse=false;"
-	b. npm run build_dev
-	c. replace the application "/mustang-web-application-master/public" folder to Host SDK "/share/Public/mvt/public" folder.
-	d. open host server web page: url is hostIP:hostPort
+
+       a. set file: "/src/js/config/appConfig.js" parameter: "const DebugUse=false;"
+       b. npm run build_dev
+       c. replace the application "/mustang-web-application-master/public" folder to Host SDK "/share/Public/mvt/public" folder.
+       d. open host server web page: url is hostIP:hostPort
 
 
 ## Getting Started
